@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>工聚来</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="工聚来" />
+    <meta name="copyright" content="工聚来" />
+    <meta name="keywords" content="工聚来"/>
+    <link rel="stylesheet" href="css/base.css">
+<style type="text/css">
+#homeGJL{}
+#homeGJL .headTop{height: 40px;width: 100%;background: #E60213;padding-left:40px;}
+#homeGJL .headTop .headTopLogo{width: 58px;margin-right:40px;}
+#homeGJL .headTop .headTopLogo img{width: 100%;}
+#homeGJL .headTop .items{width: 100px;height: 40px;line-height: 40px;color: #fff;font-size:16px;text-align: center;cursor: pointer;}
+#homeGJL .headTop .action{color: #E60213;background: #fff;}
+#homeGJL .mainSearch{margin-top:30px;}
+#homeGJL .mainSearch .searchBox{width: 600px;margin:10px auto;}
+#homeGJL .mainSearch .searchBox .inputText{width: 400px;}
+#homeGJL .mainSearch .searchBox .inputText input{width: 400px;height: 38px;border-color: #E60213;border-style:solid;border-right:none;font-size:16px;}
+#homeGJL .mainSearch .searchBox .changeType{width: 100px;}
+#homeGJL .mainSearch .searchBox .changeType select{width: 100px;height: 44px;border-color: #E60213;font-size:18px;padding-left:26px;border-width: 2px;}
+#homeGJL .mainSearch .searchBox .searchButton{width: 100px;height: 44px;line-height:44px;background: #E60213;color:#fff;font-size:18px;}
+
+#require{width: 1000px;margin: auto;}
+#require .uploadWay{margin-top: 20px;}
+#require .uploadWay .title{margin-right:30px;color: #666;height: 32px;line-height: 32px;font-size:14px;}
+#require .uploadWay .uploadItems{border:1px #E60213 solid;border-right:none;width: 100px;height: 30px;line-height: 30px;text-align: center;color:#E60213;cursor: pointer;background: rgba(230,2,19,0.06);}
+#require .uploadWay .uploadActive{background: #E60213;color:#fff;}
+#require .uploadWay .uploadUnActive{opacity: 0.6;cursor: no-drop;}
+#require .creatRequire{width: 800px;margin:50px auto 20px auto;padding-left:48px;}
+#require .creatRequire .creatInput{margin-bottom:20px;}
+#require .creatRequire .creatInput .creatItems{}
+#require .creatRequire .creatInput .creatItems input{height: 25px;width: 200px;margin-right:10px;font-size:14px;border:1px #636363 solid;padding-left:5px;}
+#require .creatRequire .creatInput .subButton{width: 100px;height: 29px;line-height: 29px;color: #fff;background: #E60213;border-radius: 5px;}
+
+#require .showRequireTemp{width: 802px;margin:auto;}
+#require .showRequireTemp .title{color:#666;background: #c7c7c7;font-size: 16px;height: 25px;line-height: 25px;}
+#require .showRequireTemp .CPname{width: 300px;}
+#require .showRequireTemp .CPtype{width: 150px;}
+#require .showRequireTemp .CPbrand{width: 150px;}
+#require .showRequireTemp .CPopt{width: 200px;}
+#require .showRequireTemp .tempItems{color:#333;font-size: 14px;height: 30px;line-height: 30px;border:1px #c7c7c7 solid;border-top: none;cursor: default;}
+#require .showRequireTemp .tempItems .CPopt:hover{color: #E60213;cursor: pointer;}
+</style>
+</head>
+<body>
+	<div id="homeGJL" class="YH">
+        <div class="headTop clearfix">
+            <div class="headTopLogo fl">
+                <img src="img/logo.png">
+            </div>
+            <div class="fl items " onclick="changeHeadTop(this)">首页</div>
+            <div class="fl items action" onclick="changeHeadTop(this)">需求清单</div>
+            <div class="fl items" onclick="changeHeadTop(this)">采购单</div>
+            <div class="fl items" onclick="changeHeadTop(this)">我的订单</div>
+        </div>        
+    </div>
+    <div id="require" class="YH">
+        <div class="uploadWay clearfix">
+            <div class="title fl">选择上传方式:</div>
+            <div class="uploadItems fl uploadUnActive" style="border-top-left-radius:5px;border-bottom-left-radius:5px">EXCEL</div>
+            <div class="uploadItems fl uploadUnActive">WORD</div>
+            <div class="uploadItems fl uploadUnActive">PHOTO</div>
+            <div class="uploadItems fl uploadActive" style="border-top-right-radius:5px;border-bottom-right-radius:5px;border-right:1px #E60213 solid;">填写需求清单</div>
+        </div>
+        <div class="creatRequire">
+            <div class="creatInput clearfix">
+                <div class="fl creatItems">
+                    <input class="YH" type="text" id="ReName" name="ReName" placeholder="填写产品名称">
+                </div>
+                <div class="fl creatItems">
+                    <input class="YH" type="text" id="ReType" name="ReType" placeholder="填写型号">
+                </div>
+                <div class="fl creatItems">
+                    <input class="YH" type="text" id="ReBrand" name="ReBrand" placeholder="填写品牌">
+                </div>
+                <div class="fl subButton ac CP" onclick="testSub()">
+                    提交添加
+                </div>
+            </div>
+        </div>
+        <div class="showRequireTemp">
+            <div class="title clearfix">
+                <div class="fl CPname ac">产品名称</div>
+                <div class="fl CPtype ac">型号</div>
+                <div class="fl CPbrand ac">品牌</div>
+                <div class="fl CPopt ac">操作</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+	function changeHeadTop(obj){
+        $("#homeGJL .headTop .items").removeClass("action");
+        $(obj).addClass("action");
+    }
+    function testSub(){
+        var name = $("#ReName").val();
+        var type = $("#ReType").val();
+        var brand = $("#ReBrand").val();
+
+        var html="";
+        html+='<div class="tempItems">';
+        html+='<div class="fl CPname ac">'+name+'</div>';
+        html+=' <div class="fl CPtype ac">'+type+'</div>';
+        html+='<div class="fl CPbrand ac">'+brand+'</div>';
+        html+='<div class="fl CPopt ac">删除</div>';
+        html+='</div>';
+        $(".showRequireTemp").append(html);
+        $("#ReName").val("");
+        $("#ReType").val("");
+        $("#ReBrand").val("");
+    }
+</script>
+
+</html>

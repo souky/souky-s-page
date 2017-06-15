@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>商户后台登陆</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="Souky" />
+    <meta name="copyright" content="Souky" />
+    <meta name="keywords" content="Souky"/>
+    <link rel="stylesheet" href="resources/css/base.css">
+<style type="text/css">
+body{background: #f1f1f1;}
+#integral{}
+#integral .banner{width: 100%;}
+#integral .banner img{width: 100%;}
+#integral .main{width: 1200px;margin:20px auto;}
+
+
+#integral .main .query_integral{}
+#integral .main .query_integral .department{width: 250px;height: 40px;line-height: 40px;background: #fff;margin-right: 20px;position: relative;font-size: 16px;font-weight: 500;}
+#integral .main .query_integral .job{width: 200px;height: 40px;line-height: 40px;background: #fff;margin-right: 20px;position: relative;font-size: 16px;font-weight: 500;}
+#integral .main .query_integral .search{position: relative;}
+#integral .main .query_integral .search div{position: absolute;width: 20px;height: 20px;right: 20px;top: 10px;z-index: 99;cursor: pointer;}
+#integral .main .query_integral .search input{background: #fff;width: 670px;height: 40px;line-height: 40px;padding: 0 20px;border:none;font-size: 16px;font-weight: 500;font-family: "Microsoft YaHei";}
+#integral .main .query_integral .select_img{position: absolute;width: 10px;right: 10px;top: 15px;height: 10px;line-height: 10px;}
+#integral .main .query_integral .select_part{position: absolute;color: #8e8e8e;top: 40px;left: 0px;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;box-shadow: 2px 3px 10px #c7c7c7;z-index: 999;background: #fff;}
+#integral .main .query_integral .select_part .items{height:40px;line-height: 40px;border-bottom: 1px #f1f1f1 solid;}
+#integral .main .query_integral .select_part .items:last-child{border:none;}
+#integral .main .query_integral .select_part .items:hover{background: #4dacbe;color: #fff;}
+#integral .main .query_integral .select_part .dept{width: 250px;text-align: center;}
+#integral .main .query_integral .select_part .jobs{width: 200px;text-align: center;}
+
+#integral .main .table_integral{background: #fff;margin-top: 20px;}
+#integral .main .table_integral table{width: 96%;margin:auto;border-collapse:collapse;}
+#integral .main .table_integral table tr:first-child{border-bottom: 1px #dedede solid;height: 50px;line-height: 50px;width: 100%;font-size: 16px;}
+#integral .main .table_integral table tr{width: 98%;border-bottom: 1px #dcdcdc solid;}
+#integral .main .table_integral table tr td{height: 40px;line-height: 40px;text-align: center;font-size: 14px;color:#666;}
+#integral .main .table_integral table tr td:first-child{border-bottom: 1px #fff solid;}
+#integral .main .table_integral table tr td:last-child{border-bottom: 1px #fff solid;}
+#integral .main .table_integral table tr td font{color: #f40;}
+
+
+#integral .main .page_integral{background: #fff;padding: 20px 0;}
+#integral .main .page_integral .mainPage{margin: auto;}
+#integral .main .page_integral .mainPage .prev{float: left;cursor: pointer;width: 10px;margin-right: 10px}
+#integral .main .page_integral .mainPage .nums{float: left;cursor: pointer;width: 20px;height: 19px;line-height: 19px;text-align: center;font-size: 14px;}
+#integral .main .page_integral .mainPage .active{color: #f40;}
+#integral .main .page_integral .mainPage .next{float: left;cursor: pointer;width: 10px;margin-left: 10px}
+</style>
+</head>
+<body class="YH">
+	<div id="integral">
+        <div class="banner">
+            <img src="resources/img/shushu/banner.png">
+        </div>
+        <div class="main">
+            <div class="query_integral clearfix">
+                <div class="department fl CP YH" data-select="0" data-value="" onclick="select_dept(this)">
+                    <div class="text ac">部门选择</div>
+                    <div class="select_img">
+                        <img src="resources/img/shushu/select.png" width="100%">
+                    </div>
+                    <div class="select_part hide">
+                        <div class="items dept" data-values="1" onclick="selectThis(this)">什么鬼部门1</div>
+                        <div class="items dept" data-values="3" onclick="selectThis(this)">什么鬼部门2</div>
+                        <div class="items dept" data-values="4" onclick="selectThis(this)">什么鬼部门3</div>
+                        
+                    </div>
+                </div>
+                <div class="job fl CP YH" data-select="0" data-value="" onclick="select_jobs(this)">
+                    <div class="text ac">职位选择</div>
+                    <div class="select_img">
+                        <img src="resources/img/shushu/select.png" width="100%">
+                    </div>
+                    <div class="select_part hide">
+                        <div class="items jobs" data-values="1" onclick="selectThis(this)">什么鬼职位1</div>
+                        <div class="items jobs" data-values="1" onclick="selectThis(this)">什么鬼职位2</div>
+                        <div class="items jobs" data-values="1" onclick="selectThis(this)">什么鬼职位3</div>
+                        <div class="items jobs" data-values="1" onclick="selectThis(this)">什么鬼职位4</div>
+                    </div>
+                </div>
+                <div class="search fl">
+                    <input type="text" id="names" name="name" placeholder="输入姓名">
+                    <div onclick="search_name()">
+                        <img src="resources/img/shushu/search.png" width="100%" />
+                    </div>
+                </div>
+            </div>
+            <div class="table_integral">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>部门</th>
+                        <th>姓名</th>
+                        <th>职位</th>
+                        <th>当前积分</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>什么鬼部门1</td>
+                        <td>什么鬼姓名1</td>
+                        <td>什么鬼职位1</td>
+                        <td>什么鬼积分1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>什么鬼部门2</td>
+                        <td>什么鬼姓名2</td>
+                        <td>什么鬼职位2</td>
+                        <td>什么鬼积分2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>什么鬼部门3</td>
+                        <td>什么鬼姓名3</td>
+                        <td>什么鬼职位3</td>
+                        <td>什么鬼积分<font>3</font></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>什么鬼部门4</td>
+                        <td>什么鬼姓名4</td>
+                        <td>什么鬼职位4</td>
+                        <td>什么鬼积分4</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="page_integral ">
+                <div class="mainPage clearfix">
+                    <div class="prev">
+                        <img src="resources/img/shushu/left.png" width="100%">
+                    </div>
+                    <div class="nums active">1</div>
+                    <div class="nums">2</div>
+                    <div class="nums">3</div>
+                    <div class="nums">4</div>
+                    <div class="next">
+                        <img src="resources/img/shushu/right.png" width="100%">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script>
+
+$(function(){
+    var width = $(".mainPage").find(".nums").length * 20 + 40;
+    $(".mainPage").css("width",width+"px");
+})
+
+function select_dept(obj){
+    var select = $(obj).attr("data-select");
+    if(select=="0"){
+        $(obj).find(".select_part").slideDown(300);
+        $(obj).attr("data-select","1");
+    }else{
+        $(obj).find(".select_part").slideUp(300);
+        $(obj).attr("data-select","0");
+    }
+}
+function select_jobs(obj){
+    var select = $(obj).attr("data-select");
+    if(select=="0"){
+        $(obj).find(".select_part").slideDown(300);
+        $(obj).attr("data-select","1");
+    }else{
+        $(obj).find(".select_part").slideUp(300);
+        $(obj).attr("data-select","0");
+    }
+}
+function selectThis(obj){
+    var values = $(obj).attr("data-values");
+    var text = $(obj).text();
+    $(obj).parent().parent().find(".text").html(text);
+    $(obj).parent().parent().attr("data-value",values);
+}
+
+function search_name(){
+    var names = $("#names").val();
+    var dept = $(".department").attr("data-value");
+    var jobs = $(".job").attr("data-value");
+    var data = {names:names,dept:dept,jobs:jobs}
+    console.log(data);
+}
+</script>
+
+</html>

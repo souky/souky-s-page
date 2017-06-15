@@ -1,0 +1,14 @@
+body{background: #f8f8f8}
+#indexM{min-height: 400px;}
+#indexM .lazy{width: 100%}
+
+
+
+#indexM .arerB .middle .items{width: 33.1%;}
+#indexM .arerB .middle .item_m{margin:0px 0.35%;}
+#indexM .arerB .bottom .items{width: 49%;}
+
+#indexM .arerC .items{width: 33%;margin:0.6px 0.165%;}
+
+#indexM .arerD .items{margin-top: 5px;}
+#indexM .arerD .items .title{height: 30px;line-height: 30px;font-family: "微软雅黑";font-size: 16px;color: #555;border-bottom: 1px #E8E8E8 solid;background: #efefef;padding-left: 10px;}

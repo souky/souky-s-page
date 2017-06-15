@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>搜狗输入法官方网站图片轮播Jquery插件</title>
+<meta name="Keywords" content="搜狗输入法官方网站图片轮播Jquery插件,Jquery插件,Jquery原创,Jquery资源,Jquery特效,js特效,div+css,JquerySchool" />
+<meta name="description" content="JquerySchool是一个专门分享jquery资源、jquery插件、jquery特效的一个网站,完全开放源代码,把实际开发中应用最多、最实用的Jquery资源抽取出来再加以精心编排,让广大网友能以最短的时间、花最少的精力去真正掌握jQuery开发的知识。" />
+<style>
+/*样式格式化*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+fieldset, img { border: 0; }
+img { display:inline-block; }
+
+ol, ul { list-style: none outside none; }
+#wrapper{ width:1000px;margin:auto;position:relative; }
+.show_images_list_li {
+position: absolute;
+cursor: pointer;
+vertical-align:bottom; display:block
+}
+
+#belt {display: block;height: 122px;left: 200px;line-height: 1000px;overflow: hidden;position: absolute;top: 1px;width: 149px;
+background:url(features6.6/images/beltnew1.png) no-repeat; background:url(features6.6/images/images/beltnew.png) no-repeat\0; z-index:100;}
+
+.btn { background:url(features6.6/images/btn.jpg) no-repeat; width:101px; height:25px; margin:auto; position:relative; padding-top:350px;}
+.btn  a{width:17px; height:15px; overflow:none; display:block;background:url(features6.6/images/btn.jpg)  no-repeat; cursor: pointer;float:left;}
+.btn  a.active{ background:url(features6.6/images/btn.jpg) -17px 0 no-repeat;}
+
+
+</style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$(".btn").show();
+	$(".btn  a:first").addClass("active");	
+	$().gallery({
+		current: [".show_images_1",".show_images_1_img"],
+		left: [".show_images_2",".show_images_2_img"],
+		right: [".show_images_3",".show_images_3_img"],
+	none: [".show_images_4",".show_images_4_img"],
+		duration: 500,
+		start: function() {
+			$(".header_text").fadeOut(150);
+		},
+		end: function() {
+			$(".header_text").fadeIn(150);
+		},
+		autoChange : true,
+		changeTimeout: 3000,
+		stopTarget : ".header_stage"
+	});
+});
+</script>
+<link href="css/reset.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id="wrapper">
+  <div id="maincontent">
+    <div id="huadong">
+      <ul class="show_images_list">
+        <li class="show_images_list_li show_images_1" style="z-index: 15; top: 1px; left: 200px;"><a href="http://www.jq-school.com" target="_blank"><img  class="show_images_1_img" src="http://pinyin.sogou.com/features6.6/images/6.6/1.png" alt="" title="" style="width: 599px; height: 353px;"></a></li>
+        <li class="show_images_list_li show_images_2" style="z-index: 10; top: 20px; left: 0px;"><a href="http://www.jq-school.com" target="_blank"><img class="show_images_2_img" src="http://pinyin.sogou.com/features6.6/images/6.6/4.png"alt="" title="" style="width: 527px; height: 310px;"></a></li>
+        <li class="show_images_list_li show_images_3" style="z-index: 5; top: 20px; left: 459px;"><a href="http://www.jq-school.com" target="_blank"><img class="show_images_3_img" src="http://pinyin.sogou.com/features6.6/images/6.6/2.png" alt="" title="" style="width: 527px; height: 310px;"></a></li>
+        <li class="show_images_list_li show_images_4" style="z-index: 0; top: 20px; left: 200px;"><a href="http://www.jq-school.com" target="_blank"><img class="show_images_4_img" src="http://pinyin.sogou.com/features6.6/images/6.6/3.png" alt="" title="" style="width: 527px; height: 310px;"></a></li>
+      </ul>
+      <script type="text/javascript" src="js/image_gallery.js"></script>
+      <div class="header_text"  id="belt"></div>
+    </div>
+    <div class="btn"> <a class="btn1" rel="1" ></a> <a class="btn2" rel="2" ></a> <a class="btn3" rel="3" ></a> <a class="btn4" rel="4" ></a> </div>
+  </div>
+</div>
+<center>
+  <div style="font-size:15px; font-weight:bold; text-align:center; line-height:25px; clear:both;">搜狗输入法官方网站图片轮播Jquery插件<br />
+    JquerySchool网站出品（<a href="http://www.jq-school.com" target="_blank">http://www.jq-school.com</a>）<br />
+    官方网站学习交流QQ群<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=4bf27be4ad1c0d647109933b80345be05d9c0efbb2c52ae1feb7247a40950720"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="Jquery学堂②群" title="Jquery学堂②群"></a> </div>
+</center>
+</body>

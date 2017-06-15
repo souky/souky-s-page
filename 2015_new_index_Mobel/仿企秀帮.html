@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/ht_code.css">
+<title>仿企秀帮</title>
+
+<style>
+
+#wrapper{max-width: 650px;visibility: visible;display: block;z-index: 1;margin: auto;}
+.main{width: 100%;}
+.items{width: 100%;overflow: hidden;}
+</style>
+</head>
+<body>
+	
+	<article id="wrapper">
+		<div class="main">
+			<div class="ac items">
+				<img src="img/QXB/1.png" style="width:99%" />
+			</div>
+			<div class="ac items">
+				<img src="img/QXB/2.png" style="width:99%" />
+			</div>
+			<div class="ac items">
+				<img src="img/QXB/3.jpg" style="width:99%" />
+			</div>
+			<div class="ac items">
+				<img src="img/QXB/4.jpg" style="width:99%" />
+			</div>
+		</div>
+		<div style="position:fixed;top:20px;right:20px;width:100px;height:100px;background:rgba(0,0,0,0.5);color:#fff;line-height:50px;font-size:18px;">
+				<div id="topJS"></div>
+				<div id="topJE"></div>
+			</div>
+	</article>
+
+</body>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript" src="js/iscroll-probe.js"></script>
+<script type="text/javascript" src="js/JChart.debug.js"></script>
+<script type="text/javascript" src="js/zepto.touch2mouse.js"></script>
+
+<script>
+
+
+var myScroll = new IScroll('#wrapper', {
+    mouseWheel: true,
+    scrollbars: true,
+    scrollCancel: true,
+    probeType: 2
+});
+
+var topStart = 0;
+var topEnd = 0;
+var scrollFlag = true;
+var countTop = 1;
+var totalCount = 0;
+myScroll.on('beforeScrollStart',beforeScrollStartFN);
+myScroll.on('scrollEnd',scrollEndFn);
+
+myScroll.on('scroll',function(){
+	var topAways = $(".main").offset().top;
+	var topAwaysAbs = Math.abs(topAways-topStart);
+	if(topAwaysAbs>300){
+		scrollEndFn();
+	}
+})
+
+$(function(){
+	$(".iScrollVerticalScrollbar").css("display","none");
+	//$(".iScrollIndicator").css("height","0px");
+	var height = $(window).height()+"px";
+	
+	$(".items").css("height",height);
+	$(".items").css("line-height",height);
+	countTop = 1;
+	totalCount = $(".main").find(".items").size();
+	
+	//myScroll.scrollTo(0, -200, 1000, IScroll.utils.ease.elastic);
+})
+
+function beforeScrollStartFN(){
+	topStart = $(".main").offset().top;
+	scrollFlag = true;
+}
+
+function scrollEndFn(){
+	if(scrollFlag){
+		topEnd = $(".main").offset().top;
+		var topOffset = topStart - topEnd;
+		$("#topJS").html(topStart);
+		
+		var topOffsetAbs = Math.abs(topOffset);
+		if(topOffsetAbs>200){
+			if(topOffset>0){
+				countTop++;
+				if(countTop>4){
+					countTop=1;
+				}
+				myScroll.scrollToElement(".main div:nth-child("+countTop+")",500);
+			}else{
+				countTop--;
+				if(countTop<0){
+					countTop=4;
+				}
+				myScroll.scrollToElement(".main div:nth-child("+countTop+")",500);
+			}
+			
+		}else{
+			myScroll.scrollToElement(".main div:nth-child("+countTop+")",500);
+		}
+		
+		scrollFlag = false;
+	}
+
+}
+
+</script>
+

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>工聚来</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="工聚来" />
+    <meta name="copyright" content="工聚来" />
+    <meta name="keywords" content="工聚来"/>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shoppingCart.css">
+</head>
+<body>
+	<div class="pcs-content">
+		<div class="page1200 clearfix">
+		{{if shoppingCartList}}
+		<div class="checkout-head">
+			<div class="head-tit clearfix">
+				<div class="tit-txt">购物车</div>
+			</div>
+			<div class="checkout-tit f16">
+				全部商品（{{cartTotalQuantity}}）
+			</div>
+			<div class="cart-thead">
+				<div class="pull-left cart-checkbox w300">
+					<input type="checkbox" class="selectedAllItem">
+						<label for="" class="f14">全选</label>
+				</div>
+				<div class="pull-left t-goods f14">商品信息</div>
+				<div class="pull-left t-price f14">单价</div>
+				<div class="pull-left t-quantity f14">数量</div>
+				<div class="pull-left t-sum f14">小计</div>
+				<div class="pull-left t-action f14">操作</div>
+			</div>
+		</div>
+		<div class="checkout-steps">
+			<form method="post" action="http://1ciyunmall.com/control/modifycart" name="cartform" id="cartform">
+				<input type="hidden" name="removeSelected" value="false">
+					<input type="hidden" name="joinSelected" value="false">
+						<input type="hidden" name="cartLineSelected" value="Y">
+							{{each shoppingCartList as value1 i1}}
+							<div class="step-box">
+								<div class="step-tit">
+					<span class="shop_name"><img src="<@spring.url '/assets/ciyunmall/img/icon_business.png' />">
+						{{value1.storeName}}</span>
+
+								</div>
+								<div class="step-cont">
+									{{each value1.cartItemData as value2 i2}}
+									<div class="t-good-tr clearfix">
+										<table class="cartline">
+											<tbody>
+
+											<tr>
+												{{if value2.checked==true}}
+												<td class="choose" width="5%">
+													<input name="selectedItem" value="0" checked  class="true" type="checkbox" lineindex={{value2.shoppingListItemCompositeId}}>
+												</td>
+												{{else}}
+												<td class="choose" width="5%">
+													<input name="selectedItem" value="0"   class="" type="checkbox" lineindex={{value2.shoppingListItemCompositeId}}>
+												</td>
+												{{/if}}
+
+												<td class="img" width="8%"><a target="_blank" href={{host+'/products/'+value2.productId+'.html'}}>
+													<img alt="" width="88" height="88" src={{value2.displayItemImageUrl}} ></a></td>
+												<td class="product">
+
+													<dl>
+														<dt><a target="_blank" href={{host+'/products/'+value2.productId+'.html'}}>{{value2.displayItemProductName}}</a></dt>
+														<dd>商品编号：{{value2.productId}}</dd>
+
+													</dl>
+
+												</td>
+												<td class="money" width="10%">
+													￥{{value2.itemPrice}}	                            </td>
+												<td class="num" width="12%">
+													<div class="tAmount clearfix">
+														<a href="javascript:void(0)" class="tMinus  fa fa-minus" lineindex={{value2.shoppingListItemCompositeId}}></a>
+														<input class="tAmountVal" name="update_{{value2.shoppingListItemCompositeId}}" value="{{value2.displayItemQty}}" id="update_{{value2.shoppingListItemCompositeId}}" type="text" lineindex="{{value2.shoppingListItemCompositeId}}">
+															<a href="javascript:void(0)" class="tPlus fa fa-plus" lineindex={{value2.shoppingListItemCompositeId}} id="update_{{value2.shoppingListItemCompositeId}}" name="update_{{value2.shoppingListItemCompositeId}}"></a>
+															<input type="hidden" id="hidden_update_{{value2.shoppingListItemCompositeId}}" name="hidden_update_{{value2.shoppingListItemCompositeId}}" value="">
+													</div>
+												</td>
+												<td class="sub" width="12%">
+													￥{{value2.displayItemSubTotal}}                          </td>
+												<td class="op" width="8%">
+													<a  lineindex={{value2.shoppingListItemCompositeId}} class="oneDelect" >删除</a><br>
+												</td>
+											</tr>
+
+											</tbody></table>
+									</div>
+									{{/each}}
+								</div>
+							</div>
+							{{/each}}
+			</form>
+		</div>
+
+		<div class="checkout-foot">
+			<div class="sticky-wrap clearfix">
+				<div class="s-tip pull-left">
+					<div class="pull-left t-span">
+						<input type="checkbox" class="selectedAllItem">
+							<label for="" class="f14">全选</label>
+					</div>
+					<div class="pull-left t-span"><a href="javascript:void(0);" class="u-remove f14">删除选中商品</a></div>
+					<div class="pull-left t-span"><a href="javascript:void(0);" class="t-tolprice u-removeOutDateProduct f14">清空购物车</a></div>
+
+					<div class="pull-left t-tolal">
+						已选中<span class="text-red selectedSize">{{cartTotalSelected}}</span>件商品  共计
+						<span class="text-red" id="displayGrandTotal">￥{{cartTotalPrice}}</span>
+					</div>
+				</div>
+				<div>
+
+				</div>
+				<button type="submit" class="checkout-submit pull-right">立即结算</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+{{else}}
+<div class="emtCart">
+	<img src="<@spring.url '/assets/images/shoppingCart.png' />" alt=""/>
+	<div  class="labe">
+		<span class="tex">购物车内暂时没有商品，请您添加商品</span>
+		<div class="go">
+			<a href={{host+'/index'}}> 去购物></a>
+		</div>
+	</div>
+
+</div>
+{{/if}}
+</body>
+		
+<script>
+	$(function(){
+		$(".reduceQuantity").click(function(){
+			var input = $(this).parent().children('.quantity')
+			if(input.val()>1){
+				input.val(input.val()-1);
+			}else{
+				$(this).css({cursor:"not-allowed"});
+			}
+			input.blur();
+		})
+		$(".addQuantity").click(function(){
+			var input = $(this).parent().children('.quantity')
+			input.val(parseInt(input.val())+1);
+			input.blur();
+		})
+		$(".pText", ".step-box").on("click", function(){
+			var content = $(this).next(".pContent");
+			if(content.size() > 0) {
+				if(content.is(":hidden")) {
+					$(".pContent", ".step-box").hide();
+					content.show();
+				} else {
+					content.hide();
+				}
+			}
+		});
+	})
+</script>

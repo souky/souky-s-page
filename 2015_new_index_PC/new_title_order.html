@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>海淘商城-放心买进口货-跨境保税|海外直邮|海淘优品|海淘国际</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+
+<style type="text/css">
+.title{width: 990px;margin:40px auto;position: relative;}
+.title .main{}
+.title .main .items{width:100px;height: 40px;line-height: 40px;font-family: "微软雅黑";font-size: 16px;}
+.title .main .items:hover{color:#f40;cursor: pointer;}
+.title .main .itemsGD{width:2px;height: 20px;background: #c7c7c7;margin:10px 1.5px auto 1.5px; }
+.title .main .active{color:#f40;}
+
+.title .titleLine{width: 990px;height: 2px;background: #c7c7c7;margin-top:3px;}
+.title .moveLine{width: 100px;position: absolute;height: 2px;background: #f40;left: 0px;top:43px;}
+</style>
+</head>
+<body>
+	<div class="title">
+		<div class="main clearfix">
+			<div class="items fl ac active" data-left="0" onclick="selectStatus(this)">
+				所有订单
+			</div>
+			<div class="itemsGD fl"></div>
+
+			<div class="items fl ac" data-left="105" onclick="selectStatus(this)">
+				待付款
+			</div>
+			<div class="itemsGD fl"></div>
+
+			<div class="items fl ac" data-left="210" onclick="selectStatus(this)">
+				待发货
+			</div>
+			<div class="itemsGD fl"></div>
+
+			<div class="items fl ac" data-left="315" onclick="selectStatus(this)">
+				待收货
+			</div>
+			<div class="itemsGD fl"></div>
+
+			<div class="items fl ac" data-left="420"  onclick="selectStatus(this)">
+				待评价
+			</div>
+			
+		</div>
+		<div class="titleLine"></div>
+		<div class="moveLine"></div>
+		
+	</div>
+
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script>
+ 	function selectStatus(obj){
+ 		var leftS = parseInt($(".moveLine").css("left").replace("px",""));
+ 		var leftE = parseInt($(obj).attr("data-left"));
+ 		var leftM = leftE-leftS;
+ 		if(leftM!=0){
+ 			$(".items").removeClass("active");
+ 			$(obj).addClass("active");
+ 			$(".moveLine").animate({left:leftE},400);
+ 		}
+ 	}
+ 	
+ 
+</script>
+
+</html>

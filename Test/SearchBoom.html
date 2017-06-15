@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>SearchBoom</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+   
+</head>
+<style>
+#searchBoom{margin:150px auto auto auto;width:330px;}
+#searchBoom .tr{padding:0px;}
+#searchBoom .td{float: left;width: 30px;height: 30px;line-height: 30px;margin:1px;}
+#searchBoom .td input{width: 30px;height: 30px;margin:0px;}
+
+</style>
+<body>
+  <div id="searchBoom" >
+  	 <div class="tr clearfix" data-father="1">
+  	 	<div class="td" data-col="1" data-boom="0" onclick="boom(this)"><input type="button" /></div>
+  	 	<div class="td" data-col="2" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="3" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="4" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="5" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="6" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="7" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="8" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="9" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="10" data-boom="0"><input type="button" /></div>
+  	 </div>
+  	 <div class="tr clearfix" data-father="2">
+  	 	<div class="td" data-col="1" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="2" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="3" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="4" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="5" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="6" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="7" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="8" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="9" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="10" data-boom="0"><input type="button" /></div>
+  	 </div>
+  	 <div class="tr clearfix" data-father="3">
+  	 	<div class="td" data-col="1" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="2" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="3" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="4" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="5" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="6" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="7" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="8" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="9" data-boom="0"><input type="button" /></div>
+  	 	<div class="td" data-col="10" data-boom="0"><input type="button" /></div>
+  	 </div>
+
+  </div>	
+</body>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var html = "";
+		var kkk = 1;
+		for(var i=1;i<=100;i++){
+			if(i==1 || ((i-1)%10)==0){
+				html+='<div class="tr clearfix" data-father="'+kkk+'">';
+				kkk++;
+			}
+			if(i<=10){
+				html+='<div class="td ac" data-col="'+i+'" data-boom="0" data-count="'+i+'" ><input type="button" onclick="boom(this)"/></div>';
+			}else{
+				var s = i;
+				if((i%10)==0){
+					s = s-1;
+				}
+				var j = parseInt(s/10);
+				var k = i-j*10;
+				html+='<div class="td ac" data-col="'+k+'" data-boom="0" data-count="'+i+'" ><input type="button" onclick="boom(this)"/></div>';
+			}
+			
+			if((i%10)==0){
+				html+='</div>';
+			}
+		}
+		$("#searchBoom").html(html);
+		SetBoom();
+
+	});
+	function boom(obj){
+		var boom_ = $(obj).parent().attr("data-boom");
+		if(boom_=="1"){
+			$(obj).parent().css("color","red");
+			$(obj).parent().css("border","1px #c7c7c7 solid");
+			$(obj).parent().css("margin","0");
+			$(obj).parent().html("!");
+			$(".td").each{
+				 boom(this);
+			};
+			alert("炸了傻逼!");
+		}
+
+		var thisCols = parseInt($(obj).parent().attr("data-col"));
+		// var leftCols = thisCols - 1;
+		// var rightCols = thisCols + 1;
+		//prev()  next()
+		var fatherDiv = $(obj).parent().parent();
+		var father = fatherDiv.attr("data-father");
+		var isboom = 0;
+
+		if(father=="1"){
+			//没有上层兄弟类
+			var fatherDivDown = fatherDiv.next();
+			//fatherDivDown.css("background","#00cc00");
+			isboom = getIsBoom(fatherDivDown,thisCols,isboom);
+			// alert(1)
+			if (thisCols=="1") {
+				//没有左边层
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivDown,rightCols,isboom);
+				
+			}else if(thisCols=="10"){
+				//没有右边层
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDivDown,leftCols,isboom);
+				
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivDown,leftCols,isboom);
+				isboom = getIsBoom(fatherDivDown,rightCols,isboom);
+				
+			};
+			if(thisCols=="1"){
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}else if(thisCols=="10"){
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDiv,leftCols,isboom);
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDiv,leftCols,isboom);
+				isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}
+
+		}else if(father=="10"){
+			//没有下层兄弟类
+			var fatherDivUp = fatherDiv.prev();
+			isboom = getIsBoom(fatherDivUp,thisCols,isboom);
+			if (thisCols=="1") {
+				//没有左边层
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivUp,rightCols,isboom);
+				//isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}else if(thisCols=="10"){
+				//没有右边层
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDivUp,leftCols,isboom);
+				//isboom = getIsBoom(fatherDiv,leftCols,isboom);
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivUp,leftCols,isboom);
+				isboom = getIsBoom(fatherDivUp,rightCols,isboom);
+				// isboom = getIsBoom(fatherDiv,leftCols,isboom);
+				// isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			};
+			if(thisCols=="1"){
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}else if(thisCols=="10"){
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDiv,leftCols,isboom);
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDiv,leftCols,isboom);
+				isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}
+		}else{
+			var fatherDivUp = fatherDiv.prev();
+			isboom = getIsBoom(fatherDivUp,thisCols,isboom);
+			if (thisCols=="1") {
+				//没有左边层
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivUp,rightCols,isboom);
+				//isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}else if(thisCols=="10"){
+				//没有右边层
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDivUp,leftCols,isboom);
+				//isboom = getIsBoom(fatherDiv,leftCols,isboom);
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivUp,leftCols,isboom);
+				isboom = getIsBoom(fatherDivUp,rightCols,isboom);
+			
+			};
+
+			var fatherDivDown = fatherDiv.next();
+			isboom = getIsBoom(fatherDivDown,thisCols,isboom);
+			if (thisCols=="1") {
+				//没有左边层
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivDown,rightCols,isboom);
+				//isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}else if(thisCols=="10"){
+				//没有右边层
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDivDown,leftCols,isboom);
+				//isboom = getIsBoom(fatherDiv,leftCols,isboom);
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDivDown,leftCols,isboom);
+				isboom = getIsBoom(fatherDivDown,rightCols,isboom);
+				
+			};
+			if(thisCols=="1"){
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}else if(thisCols=="10"){
+				var leftCols = thisCols - 1;
+				isboom = getIsBoom(fatherDiv,leftCols,isboom);
+			}else{
+				var leftCols = thisCols - 1;
+				var rightCols = thisCols + 1;
+				isboom = getIsBoom(fatherDiv,leftCols,isboom);
+				isboom = getIsBoom(fatherDiv,rightCols,isboom);
+			}
+				
+
+		};
+		
+
+		if(isboom==0){
+			$(obj).parent().css("border","1px #c7c7c7 solid");
+			$(obj).parent().css("margin","0");
+			$(obj).parent().html("");
+		}else{	
+			$(obj).parent().css("border","1px #c7c7c7 solid");
+			$(obj).parent().css("margin","0");	
+			$(obj).parent().html(isboom);
+			
+		}
+	}
+
+	function getIsBoom(obj,cols,isboom){
+		var isBOOMS = obj.find("div[data-col='"+cols+"']").attr("data-boom");
+		//alert(1)
+		if (isBOOMS=="1") {
+			isboom = isboom+1;
+			return isboom;
+		}else{
+			var objs = obj.find("div[data-col='"+cols+"']").find("input");
+			//boom(objs)
+			//objs.css("background","#00cc00");
+			return isboom;
+		}
+	}
+
+	function SetBoom(){
+		var ss = true;
+		var k = 0;
+		for(var i=0;ss;i++){
+			var j = Math.floor(Math.random()*100);
+
+			if(j!=0){
+
+				var obj = $("#searchBoom").find("div[data-count='"+j+"']");
+				
+				var isboomss = obj.attr("data-boom");
+				if(isboomss=="0"){
+					obj.attr("data-boom","1");
+					k++;
+				}
+			}
+			if(k==10){
+				ss=false;
+			}
+		}
+		
+	}
+
+</script>
+</html>

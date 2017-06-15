@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>浏览器信息测试</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+   
+</head>
+
+
+<body>
+	<div class="ac w" style="margin-top:100px;">
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				浏览器的代码名:
+			</div>
+			<div class="fl al" style="width:60%;" id="ua1">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				浏览器的名称:
+			</div>
+			<div class="fl al" style="width:60%;" id="ua3">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				浏览器的平台和版本信息:
+			</div>
+			<div class="fl al" style="width:60%;" id="ua4">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				当前url:
+			</div>
+			<div class="fl al" style="width:60%;word-break:break-all;" id="ss8">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				来源url:
+			</div>
+			<div class="fl al" style="width:60%;word-break:break-all;" id="ss9">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				title:
+			</div>
+			<div class="fl al" style="width:60%;word-break:break-all;" id="ss10">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				关键词:
+			</div>
+			<div class="fl al" style="width:60%;word-break:break-all;" id="ss11">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				IP地址:
+			</div>
+			<div class="fl al" style="width:60%;word-break:break-all;" id="ss12">
+				undefined
+			</div>
+		</div>
+
+		<div class="clearfix" style="line-height:30px;font-size:16px;">
+			<div class="fl ar" style="width:35%;margin-right:5%;">
+				IP省市:
+			</div>
+			<div class="fl al" style="width:60%;word-break:break-all;" id="ss13">
+				undefined
+			</div>
+		</div>
+
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!-- 1、document.referrer 获取上一页的URL
+2、document.URL 获取当前页的URL(注：URL必须大写) -->
+
+
+<script type="text/javascript">
+function ss2323(obj){
+	return obj.replace(/[^\u0000-\u00FF]/g,function($0){return escape($0).replace(/(%u)(\w{4})/gi,"&#x$2;")})
+}
+function  ss2222(pValue){
+return unescape(pValue.replace(/&#x/g,'%u').replace(/\\u/g,'%u').replace(/;/g,''));
+}
+
+ $(function(){
+
+    var ua1 = navigator.appCodeName; 
+   	$("#ua1").html(ua1);   	
+   
+   	var ua3 = navigator.appName; 
+   	$("#ua3").html(ua3); 
+
+   	var ua4 = navigator.appVersion; 
+   	$("#ua4").html(ua4); 
+   	
+   	var ss8 = document.URL;
+	$("#ss8").html(ss8); 
+
+	var ss9 = document.referrer;
+	$("#ss9").html(ss9); 
+
+	var ss10 =navigator.userAgent.toLowerCase();
+
+	$("#ss10").html(ss10);
+	
+	var ss11 = document.getElementsByName("keywords")[0].content;
+   	$("#ss11").html(ss11);
+
+   	var htmlweb = 'http://dami6.hitaomart.com/search?q=%E6%9E%B8%E6%9D%9E';
+   	// var index1 = htmlweb.indexOf("-",3)+1;
+   	// var htmls = htmlweb.substr(index1);
+   	// alert(htmls);
+   	var htmls = htmlweb.split(".");
+   	var ss12 = htmls[1];
+   	//   20160218161538460TDu0sNkfnD
+   	$("#ss12").html(ss12);
+
+ //   	var s = 'var str = http://10.2.20.87/file/upload';
+	// alert(s.split(/\//)[2]);
+ })
+
+</script>
+<script type="text/javascript">  
+    
+//     window.onbeforeunload = onbeforeunload_handler;  
+//     window.onunload = onunload_handler;  
+//     function onbeforeunload_handler(){  
+//         alert("ssss");
+//     }  
+      
+//     function onunload_handler(){  
+//         var warning="谢谢光临";  
+//         alert(warning);  
+//     }  
+ 
+
+function getBrowserName(){
+	var agent = navigator.userAgent.toLowerCase();
+	var name = "";
+	if(agent.indexOf("chrome") > 0){
+		name = "chrome"
+	}else if(agent.indexOf("firefox") > 0){
+		name = "firefox"
+	}else if(agent.indexOf("safari") > 0 && agent.indexOf("chrome") < 0){
+		name = "safari"
+	}else if(agent.indexOf("msie") > 0){
+		name = "IE"
+	}else if(agent.indexOf("ubrowser") > 0){
+		name = "UCbrowser"
+	}else if(agent.indexOf("metasr") > 0){
+		name = "Sougou"
+	}else if(agent.indexOf("qqbrowser") > 0){
+		name = "qqbrowser"
+	}
+	return name;
+}
+</script>  
+</html>

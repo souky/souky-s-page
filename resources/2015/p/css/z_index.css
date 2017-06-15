@@ -1,0 +1,32 @@
+/*轮播1*/
+.wy-mod-banner1{background: #f4f4f4;margin-top:0px;height:350px;position: relative;}
+.wy-mod-banner1 .banners{height:350px;position: absolute;overflow:hidden;width:100%;margin: auto;}
+.wy-mod-banner1 .banner{height:350px;position: absolute;overflow:hidden;text-align:center;width:100%;margin: auto;}
+.wy-mod-banner1 .banner img{height:350px;overflow:hidden;width:1920px;margin:0 calc(50% - 960px);}
+.wy-mod-banner1 .focus{width:500px;margin:0px auto;padding-top:330px;text-align: center;}
+.wy-mod-banner1 .focus a{text-decoration: none;z-index:3;width:12px;height:12px;position:relative;display: inline-block;*display:inline;overflow: hidden;margin-right:5px;zoom:1;}
+.wy-mod-banner1 .focus a .bg-m{z-index:4;color:white;line-height:40px;font-size:40px;position:absolute;display: block;left:2px;top:6px;cursor:pointer; display: none;}
+.wy-mod-banner1 .focus a .bg-b{background-image:url(../img/i_doc.png);position:absolute;display: block;left:0px;top:0px;cursor:pointer; width: 12px; height: 12px;}
+.wy-mod-banner1 .focus a .inner{background-image:url(../img/i_doc_hover.png);position:absolute;left:0px;top:0px;z-index:9;opacity:0;display: none\0;+display: none;*display: none; width: 12px;height: 12px;}
+.wy-mod-banner1 .focus a.on .inner,.wy-mod-banner .focus a:hover .inner{cursor:pointer;display:block;border:0;-webkit-transition:opacity .3s ease-in-out;-ms-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;opacity:1;}
+.wy-mod-banner1 .focus .hover .inner{display:block;}
+/*z-footer*/
+.z-footer{background:#33302b;min-height:130px;padding-top:15px;}
+.z-footer .website{height:25px;line-height:25px;}
+.z-footer .website a,.z-footer .website a:hover{color:#f9f9f9;font-size:12px;}
+.z-footer .website span{margin:0 5px;}
+.z-footer .helps{height:25px;line-height:25px;}
+.z-footer .helps a,.z-footer .helps a:hover{color:#f9f9f9;font-size:12px;}
+.z-footer .helps span{margin:0 5px;}
+.z-footer .fin-copyright{height:25px;line-height:25px;color:#999;}
+.z-footer .fin-an .a1{background: url(../../img/wscfy.gif) no-repeat;width: 115px;height: 48px;display:block;}
+/*top*/
+#z_top{height:80px;}
+#z_top .log{display:block;line-height:123px;font-size:32px;font-weight:700;width:200px;background:#ff5001;text-align:center;height:123px;color:#fff;}
+#z_nav{font-family:"微软雅黑";height:40px;border-bottom:2px solid #ff5001;line-height:40px;border-top:1px solid #f1f1f1;}
+#z_nav ul li {line-height:40px;float:left;font-size: 16px;margin-right:20px;margin-left:10px;}
+#z_nav .iconfont{font-size: 18px;line-height: 40px;-webkit-transition: font-size 0.25s ease-out 0s;-moz-transition: font-size 0.25s ease-out 0s;transition: font-size 0.25s ease-out 0s}
+#z_nav_bot{height:5px;}
+/*index*/
+#z_content{min-height:650px;background:#f4f4f4;padding-top:20px;padding-bottom:20px;font-family:'微软雅黑';}
+

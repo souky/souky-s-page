@@ -1,0 +1,1023 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>新众筹页面</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+	
+<style type="text/css">
+/*进度条特效*/
+@keyframes progress-bar-stripes {from {background-position: 0 0;}to {background-position: 30px 0;}}
+.progress {height: 10px;overflow: hidden;background-color: #f5f5f5;border-radius: 4px;-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1)}
+.progress-bar {float: left;width: 0;height: 100%;font-size: 12px;line-height: 10px;color: #fff;text-align: center;background-color: #31708f;-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);-webkit-transition: width .6s ease;-o-transition: width .6s ease;transition: width .6s ease}
+.progress-striped .progress-bar,
+.progress-bar-striped {background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:      -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);-webkit-background-size: 30px 30px;background-size: 30px 30px;}
+.active {-webkit-animation: progress-bar-stripes 2s linear infinite;-o-animation: progress-bar-stripes 2s linear infinite;animation: progress-bar-stripes 2s linear infinite;}
+.progress-bar-info {background-color: #04CE00;}
+.progress-striped {background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:      -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);}
+</style>
+
+<style type="text/css">
+#peoples{}
+#peoples .title{width: 100%;}
+/*头部上部*/
+#peoples .title .top{width: 1200px;height: 35px;line-height: 35px;color: #fff;margin:auto;}
+#peoples .title .top .fl{margin-left: 20px;font-size: 15px;cursor: pointer;height:35px;}
+#peoples .title .top .pointer:hover{color: #FFBE00;cursor: pointer;}
+#peoples .title .top a{color: #fff;}
+#peoples .title .top a:hover{color:#FFBE00;}
+/*头部中部*/
+#peoples .title .middle{height: 80px;width: 1200px;margin: auto;line-height: 80px;}
+#peoples .title .middle .img{width: 425px;height: 45px;}
+#peoples .title .middle .textB .items{width: 80px;height: 40px;line-height: 40px;margin:20px 15px;border-radius: 5px;font-size: 15px;}
+#peoples .title .middle .textB .active{background: #FF8202;color: #fff;}
+/*头部尾部*/
+#peoples .title .bottom{width: 100%;height: 40px;line-height: 40px;border-bottom: 2px #00CCCD solid;}
+#peoples .title .bottom .main{width: 1200px;margin: auto;}
+#peoples .title .bottom .main .items{width: 130px;font-size: 14px;position: relative;}
+#peoples .title .bottom .main .items .btLine{position: absolute;left: 0px;bottom: 0px;width: 130px;height: 4px;background:#00CCCD;}
+#peoples .title .bottom .main .hLine{height: 20px;margin-top:10px;background: #ECECEC;width: 2px;}
+
+/*轮播*/
+#peoples .slide{width: 100%;background: #E5E5E5;height: 400px;}
+#peoples .slide .main{position: relative;width: 1200px;margin:auto;height: 400px;}
+#peoples .slide .main .imgSlide{width: 1200px;height: 400px;line-height: 400px;position: absolute;left:0px;top: 0px;}
+#peoples .slide .main .Button{position: absolute;width: 40px;height: 80px;top: 160px;color: #fff;background: rgba(0,0,0,0.3);font-size: 32px;z-index: 999;line-height: 80px;border-radius: 5px;}
+#peoples .slide .main .right{right:20px;}
+#peoples .slide .main .left{left: 20px;}
+
+/*新闻*/
+#peoples .news{margin-top: 10px;}
+#peoples .news .items{width: 360px;height: 200px;border-top:2px #46D5DB solid;box-shadow: 1px 1px 4px #BBBABA;margin:auto 20px;}
+#peoples .news .items .title{height: 50px;line-height: 50px;position: relative;}
+#peoples .news .items .title .text{font-size: 18px;color: #fff;position: absolute;left: 20px;top: 0px;z-index: 11;}
+#peoples .news .items .title .tag{position: absolute;left: -5px;top: 0px;}
+#peoples .news .items .context{padding:10px 20px;}
+#peoples .news .items .context .itemsC{width: 100%;height: 30px;line-height: 30px;}
+#peoples .news .items .context .itemsC .CP:hover{color:#FFBE00;}
+#peoples .news .items .context .itemsC .pointC{width: 4px;height: 4px;border-radius: 5px;background: #FDB41A;margin-top: 14px;margin-right: 5px;}
+#peoples .news .items .context .itemsC .textC{text-overflow:ellipsis;white-space:nowrap;overflow:hidden;width: 300px;}
+
+/*广告特效*/
+#ADEffects{width: 1200px;margin:20px auto;position: relative;background: #fff;height: 220px;overflow: hidden;}
+#ADEffects .items{position: absolute;top: 0px;left: 0px;width: 600px;height: 220px;background: #fff;}
+#ADEffects .items .img{width: 280px;height:220px;position: relative;cursor: pointer;}
+#ADEffects .items .img .borderShadow{width:3px;height: 220px;top: 0px;left: 0px;position: absolute;box-shadow: -2px 1px 18px #484848;z-index: 11;}
+#ADEffects .items .text{width: 318px;cursor: default;border:1px #F8F8F8 solid;}
+#ADEffects .items .text .title{height: 50px;line-height: 50px;color:#444;font-size: 16px;margin-bottom: 10px;}
+#ADEffects .items .text .context{line-height: 20px;height: 60px;text-overflow:ellipsis;overflow: hidden;-webkit-line-clamp:3;word-break:break-all;display:-webkit-box;-webkit-box-orient:vertical;padding: 0px 15px;}
+#ADEffects .items .text .lineMiddle{width: 90%;height: 2px;background:#eaeaea;margin: auto;margin-top: 20px;}
+#ADEffects .items .text .bottom{margin-top: 18px;height: 58px;}
+#ADEffects .items .text .bottom .left{width: 159px;line-height: 29px;}
+#ADEffects .items .text .bottom .right{width: 159px;line-height: 29px;}
+#ADEffects .items .text .bottom .right .button{width: 80px;height: 30px;line-height: 30px;margin: auto;background: #f40;color:#fff;border-radius: 5px;margin-top: 14px;cursor: pointer;}
+
+/*最新产品*/
+#peoples .online .title{border-bottom:2px #43CED5 solid;padding: 0px 20px;height: 40px;line-height: 50px;width:1160px;}
+#peoples .online .title .textOL{font-size: 23px;color:#40CED5;font-weight: 600;}
+#peoples .online .title .more{font-size: 16px;}
+#peoples .online .items{box-shadow: 1px 1px 5px #BBBABA;padding:20px;min-height: 300px;width: 1160px;margin-top: 20px;}
+#peoples .online .items .titleU{}
+#peoples .online .items .titleU .topU{height:35px;line-height: 35px;}
+#peoples .online .items .titleU .topU .textU{font-size: 26px;font-weight: 600;color:#000;}
+#peoples .online .items .titleU .topU .imgU{margin-left: 10px;line-height: 45px;height: 35px;}
+#peoples .online .items .titleU .bottomU{height: 40px;line-height:40px;font-size: 14px;}
+#peoples .online .items .main .leftPart{width: 800px;height: 310px;}
+#peoples .online .items .main .leftPart img{width: 100%;}
+#peoples .online .items .main .rightPart{width:340px;padding:5px;height: 300px;background: #EEFAF0;}
+#peoples .online .items .main .rightPart .topR{padding: 0px 15px;}
+#peoples .online .items .main .rightPart .topR .one{font-size: 16px;height: 30px;line-height: 30px;}
+#peoples .online .items .main .rightPart .topR .two{font-size: 26px;color:#04CF03;height: 40px;line-height: 40px;font-weight: 600;}
+#peoples .online .items .main .rightPart .topR .three{font-size: 14px;color:#9A9899;margin-top: 10px;}
+#peoples .online .items .main .rightPart .middleR{width: 320px;height: 70px;background: #fff;border-radius: 5px;margin:30px auto auto auto;}
+#peoples .online .items .main .rightPart .middleR .numAndTime{padding: 0px 10px;height:20px;line-height: 20px;}
+#peoples .online .items .main .rightPart .middleR .numAndTime img{margin-top: -3px;}
+#peoples .online .items .main .rightPart .bottomR{width: 200px;height: 40px;line-height: 40px;color:#fff;background: #E74C3A;border-radius: 3px;margin:25px auto;font-size: 20px;}
+
+/*类目精选*/
+#peoples .category{margin-top: 20px;margin-bottom: 40px;}
+#peoples .category .title{border-bottom:2px #43CED5 solid;padding: 0px 20px;height: 40px;line-height: 50px;width:1160px;}
+#peoples .category .title .textOL{font-size: 23px;color:#40CED5;font-weight: 600;}
+#peoples .category .title .more{font-size: 16px;}
+#peoples .category .title .more .items{height: 30px;line-height: 30px;width: 80px;margin:8px auto auto 20px;border-radius: 5px;}
+#peoples .category .title .more .active{color: #fff;background: #00CCCD;}
+#peoples .category .itemsC{width: 1160px;padding: 20px 20px;min-height: 290px;box-shadow: 1px 1px 5px #BBBABA;margin-top: 20px;}
+#peoples .category .itemsC .titleC{height: 50px;line-height: 40px;border-bottom: 1px #DCDCDC solid;}
+#peoples .category .itemsC .titleC .textC{font-size: 26px;font-weight: 600;color:#000;}
+#peoples .category .itemsC .titleC .imgC{margin-left: 10px;line-height: 48px;height: 35px;}
+#peoples .category .itemsC .titleC .buttonC{height: 30px;margin-top:5px;width: 100px;color: #fff;background:#E74C3A;margin-right: 5px;border-radius: 3px;line-height: 30px;font-size: 16px;}
+#peoples .category .itemsC .main{margin-top: 20px;}
+#peoples .category .itemsC .main .imgs{width: 350px;height: 220px;padding: 0px 5px;}
+#peoples .category .itemsC .main .imgs img{width: 350px;height: 220px;}
+#peoples .category .itemsC .main .titleI{height: 20px;line-height: 20px;font-size: 20px;color: #000;}
+#peoples .category .itemsC .main .introduce{width: 226px;height: 180px;padding: 20px 20px;}
+#peoples .category .itemsC .main .introduce .text{margin-top: 40px;line-height: 20px;font-size: 14px;text-overflow:ellipsis;overflow: hidden;-webkit-line-clamp:3;word-break:break-all;display:-webkit-box;-webkit-box-orient:vertical;}
+#peoples .category .itemsC .main .progressJ{width: 226px;height: 180px;padding: 20px 20px;position: relative;}
+#peoples .category .itemsC .main .progressJ .shadowIn{position: absolute;left:87px;top:51px;width: 97px;height: 97px;border-radius: 97px;box-shadow: 1px 1px 1px #B9B3B3  inset;}
+#peoples .category .itemsC .main .progressJ .shadowOut{position: absolute;left:95px;top:59px;width: 81px;height: 81px;border-radius: 88px;box-shadow: 1px 1px 3px #909090;}
+#peoples .category .itemsC .main .progressJ .svgDiv svg{width: 226px;height: 115px;}
+#peoples .category .itemsC .main .progressJ .svgDiv .cricleJ{stroke-dashoffset: 0;stroke-dasharray: 276px;transition: stroke-dashoffset 1s linear;}
+#peoples .category .itemsC .main .progressJ .bottomT{margin-top: 5px;margin-left: 40px;}
+#peoples .category .itemsC .main .progressJ .bottomT  font{color:#2CCD25;}
+#peoples .category .itemsC .main .progressJ .bottomT img{margin-top: -3px;margin-right: 5px;}
+#peoples .category .itemsC .main .times{width: 226px;height: 180px;padding: 20px 20px;}
+#peoples .category .itemsC .main .times .days{height:125px;font-size: 22px;color:#000;}
+#peoples .category .itemsC .main .times .endDays{margin-bottom: 3px;}
+#peoples .category .itemsC .main .times .days font{color:#05D402;font-size: 80px;line-height: 120px;margin-right: 3px;}
+#peoples .category .itemsC .main .lineShu{height: 160px;margin-top: 30px;border-right: 1px #E8E8E8 solid;}
+</style>
+</head>
+<body>
+	<div id="peoples" class="YH">
+		<!-- 头部开始 -->
+		<div class="title">
+			<div style="width:100%;height:35px;background:#636F87;">
+				<div class="top clearfix">
+					<div class="fl"><img src="img/pp/home.png"></div>
+					<div class="fl" style="margin-left:5px;line-height:37px;">海淘首页</div>
+					<div class="fr pointer CP">网站导航</div>
+					<div class="fr CD" style="margin:0px 10px;">|</div>
+					<div class="fr pointer CP">联系客服</div>
+					<div class="fr CD" style="margin:0px 10px;cursor: default;">|</div>
+					<div class="fr pointer CP">我的关注</div>
+					<div class="fr CD" style="margin:0px 10px;cursor: default;">|</div>
+					<div class="fr pointer CP">手机金融</div>
+					<div class="fr CD" style="margin:0px 10px;cursor: default;">|</div>
+					<div class="fr pointer CP">金融会员中心</div>
+					<div class="fr CD" style="margin:0px 10px;cursor: default;">|</div>
+					<div class="fr pointer CP">我的交易单</div>
+					<div class="fr CD" style="margin:0px 10px;cursor: default;">|</div>
+					<div class="fr pointer CP">免费注册</div>
+					<a href="#">
+						<div class="fr" style="margin-right:20px">你好,请登录</div>
+					</a>		
+				</div>	
+			</div>
+			
+
+			<div class="middle clearfix">
+				<div class="img fl">
+					<img src="img/pp/logo.png">
+				</div>
+				<div class="textB fr clearfix">
+					<div class="fl items CP ac active">海淘众筹</div>
+					<div class="fl items CP ac">我的账户</div>
+					<div class="fl items CP ac">我要投资</div>
+					<div class="fl items CP ac">我要融资</div>
+					<div class="fl items CP ac">关于我们</div>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<div class="main clearfix">
+					<div class="items fl CP ac">
+						首　　页
+						<div class="btLine"></div>
+					</div>
+					<div class="hLine fl"></div>
+					<div class="items fl CP ac">
+						浏览项目
+					</div>
+					<div class="hLine fl"></div>
+					<div class="items fl CP ac">
+						新手帮助
+					</div>
+
+					<div class="items fr CP ac">
+						我的众筹
+					</div>
+					<div class="hLine fr"></div>
+					<div class="items fr CP ac">
+						发布项目
+					</div>
+					
+				</div>
+			</div>
+	
+		</div>
+		<!-- 头部结束 -->
+		
+		<!-- 轮播开始 -->
+		<div class="slide">
+			<div class="main" data-slide="0">
+				<div class="imgSlide active" style="z-index:1;">
+					<img src="img/pp/slide_1.jpg">
+				</div>
+				<div class="imgSlide " style="z-index:0;">
+					<img src="img/pp/slide_2.jpg">
+				</div>
+				<div class="imgSlide " style="z-index:0;">
+					<img src="img/pp/slide_3.jpg">
+				</div>
+				<div class="imgSlide " style="z-index:0;">
+					<img src="img/pp/slide_1.jpg">
+				</div>
+				<div class="imgSlide " style="z-index:0;">
+					<img src="img/pp/slide_2.jpg">
+				</div>
+				<div class="imgSlide " style="z-index:0;">
+					<img src="img/pp/slide_3.jpg">
+				</div>
+
+				<div class="left Button ac CP" onclick="prevImg()">
+					<
+				</div>
+				<div class="right Button ac CP" onclick="nextImg()">
+					>
+				</div>
+			</div>
+		</div>
+
+		<!-- 轮播结束 -->
+		
+		<!-- 众筹新闻开始 -->
+		<div class="news w clearfix" >
+
+			<div class="items fl">
+				<div class="title">
+					<div class="text CD">媒体报道</div>
+					<div class="tag">
+						<img src="img/pp/top_tag.png">
+					</div>
+				</div>
+				<div class="context">
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹注册会员过百万  平台化布局加速</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">互联网金融已是中国新常态下的新引擎</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹获重庆市政府颁发金融创新奖</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹董事长获国家主席习近平接见  并作专题演讲</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items fl">
+				<div class="title">
+					<div class="text CD">常见问题</div>
+					<div class="tag">
+						<img src="img/pp/top_tag.png">
+					</div>
+				</div>
+				<div class="context">
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹注册会员过百万  平台化布局加速</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">互联网金融已是中国新常态下的新引擎</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹获重庆市政府颁发金融创新奖</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹董事长获国家主席习近平接见  并作专题演讲</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items fl">
+				<div class="title">
+					<div class="text CD">海淘公告</div>
+					<div class="tag">
+						<img src="img/pp/top_tag.png">
+					</div>
+				</div>
+				<div class="context">
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹注册会员过百万  平台化布局加速</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">互联网金融已是中国新常态下的新引擎 这是真的 绝对是真的阿萨德爱死的</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹获重庆市政府颁发金融创新奖</div>
+					</div>
+					<div class="itemsC clearfix">
+						<div class="pointC fl"></div>
+						<div class="fl CP textC">海淘众筹董事长获国家主席习近平接见  并作专题演讲</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 众筹新闻结束 -->
+
+		<!-- 广告开始 -->
+		<div id="ADEffects" class="YH">
+			<div class="items clearfix">
+				<div class="img fl">
+					<img src="img/pp/jd/1.jpg" style="position:absolute;left:0px;top:0px;z-index:88;width:100%;">
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						易能智达超级灯组
+					</div>
+					<div class="context">
+						无线灯光控制系统，APP及开关灵动操控、一控多多控一、调光调色、照明定时控制等功能，可以说它比普通的传统灯具更聪明、更便捷。
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/2.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						野马风行智能自行车车把立
+					</div>
+					<div class="context">
+						采用采用传统MTK智能机芯加无线对讲模块的完美设计，打破沉默的传统自行车骑行，为你在骑行中提供更多可能，畅所欲言就这么任性，内置智能车把立
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/3.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						Aimodi智能蓝牙音箱
+					</div>
+					<div class="context">
+						智能触控蓝牙音箱，内置双声道喇叭，双膜双被动结构，带被您激情澎拜的震撼低音；全新触摸按键设计，轻轻一触就播放，操作快捷随心，科技感十足。
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/4.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						能放进包里的小兜平行车
+					</div>
+					<div class="context">
+						解决最后一公里出行难题！充电2小时，续航17公里，笔记本大小。智能、轻薄、便携、安全、好玩，小兜，改变你的出行方式，升级你的出行体验。
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/5.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						一部探寻天价茶源头的纪录片
+					</div>
+					<div class="context">
+						原始森林，中缅边境，凶险环境，即将失传的茶艺传承，我们将拍摄一部纪录片，我们用镜头记录这天价茶背后的文化，抛却浮华，追寻一片属于茶的清净之地。
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/6.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						插画师作品 梦系列晴雨伞
+					</div>
+					<div class="context">
+						国内著名插画师寒放，将其”梦系列”插画作品和伞结合在一起，打造插画晴雨伞，带来全新的视觉体验和使用感受，让艺术回归日常。
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/7.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						智能四翼飞机KY-XEO
+					</div>
+					<div class="context">
+						采用采用传统MTK智能机芯加无线对讲模块的完美设计，打破沉默的传统自行车骑行，为你在骑行中提供更多可能，畅所欲言就这么任性，内置智能车把立就爱大家as降低将阿斯点解啊送
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="items clearfix" style="left:600px;">
+				<div class="img fl">
+					<img src="img/pp/jd/8.jpg" style="position:absolute;left:0px;top:0px;z-index:88;">
+					<div class="borderShadow"></div>
+				</div>
+				<div class="text fl ac">
+					<div class="title">
+						铅笔能画出怎样的风景？
+					</div>
+					<div class="context">
+						采用采用传统MTK智能机芯加无线对讲模块的完美设计，打破沉默的传统自行车骑行，为你在骑行中提供更多可能，畅所欲言就这么任性，内置智能车把立
+					</div>
+					<div class="lineMiddle"></div>
+					<div class="bottom clearfix">
+						<div class="left fl">
+							<div>市场价:</div>
+							<div>海淘价:</div>
+						</div>
+						<div class="right fl">
+							<div class="button ac">
+								查看详情
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- 广告结束 -->
+		
+		<!-- 最新上线产品开始 -->
+		<div class="online w">
+			<div class="title clearfix ">
+				<div class="textOL fl ac CD">
+					最新上线
+				</div>
+				<div class="more fr ac CP">
+					浏览更多>>
+				</div>
+			</div>
+
+			<div class="items">
+				<div class="titleU">
+					<div class="topU clearfix">
+						<div class="textU fl">孩子视力只有一次，护眼优选，明基WiT智能学习灯</div>
+						<div class="imgU fl">
+							<img src="img/pp/colltion.png" style="margin-right:3px;">842人喜欢
+						</div>
+					</div>
+					<div class="bottomU">
+						保护儿童与青少年因疏忽而对眼睛造成的不可逆伤害，推出专为现代儿童与青少年学习需求而设计的智能台灯
+					</div>
+				</div>
+				<div class="main clearfix ">
+					<div class="leftPart fl">
+						<img src="img/pp/ad_1.jpg">
+					</div>
+					<div class="rightPart fr">
+						<div class="topR CD">
+							<div class="one">
+								目前累计资金:
+							</div>
+							<div class="two">
+								¥37247.00
+							</div>
+							<div class="three">
+								此项目须在2016/04/20前，获得<font style="color:#FE6458;margin:0px 2px;">¥10000.00</font>的支持才能成功!
+							</div>
+						</div>
+						<div class="middleR">
+							<div class="clearfix" style="height:40px;line-height:40px;">
+								<div class="progress fl" style="height:10px;width:240px;margin-top:15px;margin-left:10px;">
+									<div class="progress-bar progress-striped progress-bar-striped progress-bar-info active" style="width:37%"></div>
+								</div>
+								<div class="fl ac CD" style="width:70px;font-size:16px;">
+									37%
+								</div>
+							</div>
+							<div class="numAndTime clearfix CD">
+								<div class="fl">
+									<img src="img/pp/peopleNum.png">支持人数:<font style="color:#04CF03;margin-left:5px">24人</font>
+								</div>
+								<div class="fl" style="margin-left:30px;">
+									<img src="img/pp/time.png">剩余天数:<font style="color:#04CF03;margin-left:5px">30天</font>
+								</div>
+							</div>
+						</div>
+						<div class="bottomR ac CP">
+							查看详情
+						</div>
+					</div>					
+				</div>
+			</div>
+			
+			<div class="items">
+				<div class="titleU">
+					<div class="topU clearfix">
+						<div class="textU fl">不知火丑橘-我很丑，可是我真的很甜</div>
+						<div class="imgU fl">
+							<img src="img/pp/colltion.png" style="margin-right:3px;">2054人喜欢
+						</div>
+					</div>
+					<div class="bottomU">
+						一种很特别的水果，丑陋的外皮下是甜蜜的果肉
+					</div>
+				</div>
+				<div class="main clearfix ">
+					<div class="leftPart fl">
+						<img src="img/pp/ad_2.jpg">
+					</div>
+					<div class="rightPart fr">
+						<div class="topR CD">
+							<div class="one">
+								目前累计资金:
+							</div>
+							<div class="two">
+								¥12470.00
+							</div>
+							<div class="three">
+								此项目须在2016/05/20前，获得<font style="color:#FE6458;margin:0px 2px;">¥10000.00</font>的支持才能成功!
+							</div>
+						</div>
+						<div class="middleR">
+							<div class="clearfix" style="height:40px;line-height:40px;">
+								<div class="progress fl" style="height:10px;width:240px;margin-top:15px;margin-left:10px;">
+									<div class="progress-bar progress-striped progress-bar-striped progress-bar-info active" style="width:124%"></div>
+								</div>
+								<div class="fl ac CD" style="width:70px;font-size:16px;">
+									124%
+								</div>
+							</div>
+							<div class="numAndTime clearfix CD">
+								<div class="fl">
+									<img src="img/pp/peopleNum.png">支持人数:<font style="color:#04CF03;margin-left:5px">127人</font>
+								</div>
+								<div class="fl" style="margin-left:30px;">
+									<img src="img/pp/time.png">剩余天数:<font style="color:#04CF03;margin-left:5px">5天</font>
+								</div>
+							</div>
+						</div>
+						<div class="bottomR ac CP">
+							查看详情
+						</div>
+					</div>					
+				</div>
+			</div>
+
+		</div>
+
+		<!-- 最新上线产品结束 -->
+
+		<!-- 类目精选开始 -->
+		<div class="category w">
+			<div class="title clearfix ">
+				<div class="textOL fl ac CD">
+					类目精选
+				</div>
+				<div class="more fr clearfix">
+					<div class="items fl ac CP active">
+						众筹中
+					</div>
+					<div class="items fl ac CP">
+						即将开始
+					</div>
+					<div class="items fl ac CP">
+						已结束
+					</div>
+				</div>
+			</div>
+
+			<div class="itemsC">
+				<div class="titleC clearfix">
+					<div class="textC fl">人体曲线护脊透气电脑椅</div>
+					<div class="imgC fl">
+						<img src="img/pp/colltion.png" style="margin-right:3px;">587人喜欢
+					</div>
+					<div class="buttonC fr CP ac">
+						查看详情
+					</div>
+				</div>
+				
+				<div class="main clearfix">
+					<div class="imgs fl CP">
+						<img src="img/pp/product_1.jpg">
+					</div>
+					<div class="introduce fl">
+						<div class="titleI">
+							项目介绍
+						</div>
+						<div class="text">
+							人体曲线护脊透气电脑椅是一款缓解人体久座疲劳的透气办公椅，可升降，旋转，逍遥
+						</div>
+
+					</div>
+					<div class="lineShu fl"></div>
+					<div class="progressJ fl">
+						<div class="titleI ac">
+							众筹进度
+						</div>
+						<div class="svgDiv">
+							<svg>
+								<circle cx="116" cy="60" r="44" stroke-width="8" fill="#fff" stroke="#f1f1f1" style=""></circle>
+								<circle class="cricleJ" transform="rotate(-90 116 60)" cx="116" cy="60" r="44" stroke-width="8" fill="transparent" stroke="#28FF23" style="stroke-dashoffset:-95px;"></circle>
+								<text x="86" y="70" fill="#2CFD26" style="font-size:22px;">58.2%</text>
+							</svg>
+						</div>
+						<div class="bottomT">
+							<img src="img/pp/peopleNum.png">支持人数 : <font>1024</font>
+						</div>
+						<div class="bottomT">
+							<img src="img/pp/money.png">累计金额 : <font>¥ 14521.00</font>
+						</div>
+
+						<div class="shadowIn"></div>
+						<div class="shadowOut"></div>
+
+					</div>
+					<div class="lineShu fl"></div>
+					<div class="times fl">
+						<div class="titleI ac">
+							众筹时间
+						</div>
+						<div class="days ac">
+							<font>38</font>天
+						</div>
+						<div class="endDays ac">
+							此项目须在<font style="margin:auto 4px;">2016/04/16</font>前，
+						</div>
+						<div class="ac">
+							获得<font style="color:#FE6458;margin:0px 2px;">¥10000.00</font>的支持才能成功!
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="itemsC">
+				<div class="titleC clearfix">
+					<div class="textC fl">微投乐  便携高清微型投影仪</div>
+					<div class="imgC fl">
+						<img src="img/pp/colltion.png" style="margin-right:3px;">1983人喜欢
+					</div>
+					<div class="buttonC fr CP ac">
+						查看详情
+					</div>
+				</div>
+
+				<div class="main clearfix">
+					<div class="imgs fl CP">
+						<img src="img/pp/product_2.jpg">
+					</div>
+					<div class="introduce fl">
+						<div class="titleI">
+							项目介绍
+						</div>
+						<div class="text">
+							无需数据线，即可将手机/Pad画面同步传输到投影仪屏幕上，无论什么时候同屏总是那么简单、方便
+						</div>
+
+					</div>
+					<div class="lineShu fl"></div>
+					<div class="progressJ fl">
+						<div class="titleI ac">
+							众筹进度
+						</div>
+						<div class="svgDiv">
+							<svg>
+								<circle cx="116" cy="60" r="44" stroke-width="8" fill="#fff" stroke="#f1f1f1" style=""></circle>
+								<circle class="cricleJ" transform="rotate(-90 116 60)" cx="116" cy="60" r="44" stroke-width="8" fill="transparent" stroke="#28FF23" style="stroke-dashoffset:-49px;"></circle>
+								<text x="86" y="70" fill="#2CFD26" style="font-size:22px;">82.8%</text>
+							</svg>
+						</div>
+						<div class="bottomT">
+							<img src="img/pp/peopleNum.png">支持人数 : <font>1024</font>
+						</div>
+						<div class="bottomT">
+							<img src="img/pp/money.png">累计金额 : <font>¥ 14521.00</font>
+						</div>
+
+						<div class="shadowIn"></div>
+						<div class="shadowOut"></div>
+					</div>
+					<div class="lineShu fl"></div>
+					<div class="times fl">
+						<div class="titleI ac">
+							众筹时间
+						</div>
+						<div class="days ac">
+							<font>124</font>天
+						</div>
+						<div class="endDays ac">
+							此项目须在<font style="margin:auto 4px;">2016/04/16</font>前，
+						</div>
+						<div class="ac">
+							获得<font style="color:#FE6458;margin:0px 2px;">¥100000.00</font>的支持才能成功!
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="itemsC">
+				<div class="titleC clearfix">
+					<div class="textC fl">您身边的健康管理专家——云麦健康智能体脂称</div>
+					<div class="imgC fl">
+						<img src="img/pp/colltion.png" style="margin-right:3px;">1983人喜欢
+					</div>
+					<div class="buttonC fr CP ac">
+						查看详情
+					</div>
+				</div>
+
+				<div class="main clearfix">
+					<div class="imgs fl CP">
+						<img src="img/pp/product_3.jpg">
+					</div>
+					<div class="introduce fl">
+						<div class="titleI">
+							项目介绍
+						</div>
+						<div class="text">
+							“云麦健康智能体脂称”是一款专门针对亚洲人群体质特点设计开发的智能体脂分析仪；身形虽小，功能强大
+						</div>
+
+					</div>
+					<div class="lineShu fl"></div>
+					<div class="progressJ fl">
+						<div class="titleI ac">
+							众筹进度
+						</div>
+						<div class="svgDiv">
+							<svg>
+								<circle cx="116" cy="60" r="44" stroke-width="8" fill="#fff" stroke="#f1f1f1" style=""></circle>
+								<circle class="cricleJ" transform="rotate(-90 116 60)" cx="116" cy="60" r="44" stroke-width="8" fill="transparent" stroke="#28FF23" style="stroke-dashoffset:0px;"></circle>
+								<text x="86" y="70" fill="#2CFD26" style="font-size:22px;">138%</text>
+							</svg>
+						</div>
+						<div class="bottomT">
+							<img src="img/pp/peopleNum.png">支持人数 : <font>1024</font>
+						</div>
+						<div class="bottomT">
+							<img src="img/pp/money.png">累计金额 : <font>¥ 14521.00</font>
+						</div>
+
+						<div class="shadowIn"></div>
+						<div class="shadowOut"></div>
+					</div>
+					<div class="lineShu fl"></div>
+					<div class="times fl">
+						<div class="titleI ac">
+							众筹时间
+						</div>
+						<div class="days ac">
+							<font>117</font>天
+						</div>
+						<div class="endDays ac">
+							此项目须在<font style="margin:auto 4px;">2016/04/16</font>前，
+						</div>
+						<div class="ac">
+							获得<font style="color:#FE6458;margin:0px 2px;">¥20000.00</font>的支持才能成功!
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 类目精选结束 -->
+	</div>
+
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script>
+ $(function(){
+ 	initSlide();
+ 	$(".slide .main").attr("data-slide","1");
+ 	$(".slide .main").hover(function(){
+ 		$(".slide .main").attr("data-slide","0");
+ 	},function(){
+ 		$(".slide .main").attr("data-slide","1");
+ 	})
+ })
+
+//自动化轮播
+ function initSlide(){
+ 	
+ 	var isSlide = $(".slide .main").attr("data-slide");
+ 	if(isSlide==1){
+ 		nextImg();
+ 	}
+ 	setTimeout("initSlide()",4000);
+
+ }
+ //向下换图
+ function nextImg(){
+ 	var objs = $(".slide .main").find(".active");
+ 	var obj = objs.next();
+
+ 	if(obj!=undefined){
+ 		if(!obj.hasClass("imgSlide")){
+ 			obj = $(".slide .main .imgSlide").first();
+ 		}
+ 	}else{
+ 		obj = $(".slide .main .imgSlide").first();
+ 	}
+ 	
+ 	objs.css("z-index",0);
+ 	obj.css("z-index",1);
+ 	
+ 	objs.removeClass("active");
+	obj.addClass("active");
+	$(".slide .main .imgSlide").hide();
+	obj.fadeIn(700);
+ }
+ //向上换图
+ function prevImg(){
+ 	var objs = $(".slide .main").find(".active");
+ 	var obj = objs.prev();
+ 	if(obj!=undefined){
+ 		if(!obj.hasClass("imgSlide")){
+ 			obj = $(".slide .main .imgSlide").last();
+ 		}
+ 	}else{
+ 		obj = $(".slide .main .imgSlide").last();
+ 	}
+ 	objs.css("z-index",0);
+ 	obj.css("z-index",1);
+ 	
+ 	objs.removeClass("active");
+	obj.addClass("active");
+	$(".slide .main .imgSlide").hide();
+	obj.fadeIn(700);
+ }
+</script>
+
+<!-- 广告特效js -->
+<script>
+var size = 0;
+var leftOffset = 0;
+var zIndex = 0;
+var times = 350;
+$(function(){
+	size = $("#ADEffects").find(".items").size();
+	leftOffset = 600/(size-1);
+	zIndex = 100;
+	ADEffectsInit();
+})
+function ADEffectsInit(){
+	
+	for(var i=0;i<size;i++){
+		var obj = $("#ADEffects").find(".items").eq(i);
+		if(i==0){
+			obj.css("left","0px");
+			obj.css("z-index",zIndex);
+			obj.attr("data-zindex",zIndex);
+			obj.attr("data-left",0);
+			obj.attr("data-leftJ",0);
+			obj.attr("onmouseover","activeAd(this)");
+		}else{
+			var left = 0;
+			if(i==1){
+				left = 600 ;
+			}else{
+				left = leftOffset*(i-1) + 600 ;
+			}
+			
+			var index = zIndex*(i+1);
+			obj.css("left",left+"px");
+			obj.attr("data-left",left);
+			obj.attr("data-leftj",(left-600+leftOffset));
+			obj.css("z-index",index);
+			obj.attr("data-zindex",index);
+			obj.attr("onmouseover","activeAd(this)");
+		}
+		
+	}
+}
+function activeAd(obj){
+	var indexJ = $(obj).attr("data-zindex");
+	var left = $(obj).attr("data-left");
+	var countJ = indexJ/100;
+	var leftJ = $(obj).attr("data-leftJ");
+
+	if(!$(obj).hasClass("actives")){
+		for(i=1;i<countJ;i++){
+			var objs = $("#ADEffects").find(".items").eq(i);
+			if(!objs.hasClass("actives")){
+				var LEFT = objs.attr("data-leftJ");
+				objs.animate({left:LEFT},times,"swing");
+				objs.addClass("actives");
+			}
+		}
+		$(obj).animate({left:leftJ},times,"swing");
+		$(obj).addClass("actives");
+	}else{
+		$(obj).nextAll().each(function(){
+			if($(this).hasClass("actives")){
+				var LeftS = $(this).attr("data-left");
+				$(this).animate({left:LeftS},times,"swing");
+				$(this).removeClass("actives");
+			}
+			
+		});
+
+	}
+
+}
+</script>
+</html>

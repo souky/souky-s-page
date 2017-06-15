@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/jry-Plug-in.css">
+</head>
+<body>
+	<div class="Jry_query">
+		<div class="query_part">
+			<div class="query_items">
+				<label>测试1</label>
+				<div class="inputDivOne">
+					<select>
+						<option>测试option1</option>
+						<option>测试option2</option>
+						<option>测试option3</option>
+						<option>测试option4</option>
+					</select>
+				</div>
+			</div>
+			<div class="query_items">
+				<label>测试2</label>
+				<div class="inputDivOne">
+					<input type="" name="" />
+				</div>
+			</div>
+			<div class="query_items">
+				<label>测试2</label>
+				<div class="inputDivOne">
+					<input type="" name="" />
+				</div>
+			</div>
+			<div class="query_items">
+				<label>测试3</label>
+				<div class="inputDivThree">
+					<input type="text" name="" />
+					<div>-</div>
+					<input type="text" name="" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="query_btn">
+			查　询
+		</div>
+	</div>
+
+	<div class="Jry_table" id="testTable">
+		<div class="table_body">
+			<table>
+				<tr>
+					<th></th>
+					<th>序号</th>
+					<th>测试标题1</th>
+					<th>测试标题2</th>
+					<th>测试标题3</th>
+					<th>测试标题4</th>
+					<th>测试标题5</th>
+					<th>测试标题6</th>
+					<th>测试标题7</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="test">
+					</td>
+					<td>1</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="test">
+					</td>
+					<td>2</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="test">
+					</td>
+					<td>3</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="test">
+					</td>
+					<td>4</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="test">
+					</td>
+					<td>5</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>测试内容</td>
+					<td>
+						<a href="#">试听</a>
+						<a href="#">排除</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="Jry_page" id="testPage">
+		<div class="page_body">
+			<div class="prev_page">上一页</div>
+			<div class="maps_page"></div>
+			<div class="next_page">下一页</div>
+			<div class="jump_page">
+				跳转到<input type="text" maxlength="3">页
+			</div>
+			<div class="jump_button">GO</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="js/jry-Plug-in.js"></script>
+<script type="text/javascript">
+	var pageTotal = 88;
+	$(function(){
+		JRYTable.tableInit('testTable','deletAll','test');
+		
+		JRYPage.pageInit('testPage',1,pageTotal,11,prevPage,numsPage,nextPage);
+		
+	})
+	function deletAll(){
+		
+	}
+	
+	function prevPage(){
+		
+	}
+	function numsPage(obj,pages){
+		var pageNow = 0;
+		if(pages){
+			pageNow = pages;
+		}else{
+			pageNow = $(obj).text();
+		}
+		
+		if(pageNow!='...'){
+			pageNow = parseInt(pageNow);
+			pageTotal = parseInt(pageTotal);
+			if (pageNow>pageTotal) {
+				pageNow = pageTotal;
+			}
+			JRYPage.refrshPage('testPage',pageNow,pageTotal,11,numsPage);
+		}
+		
+	}
+	function nextPage(){
+		
+	}
+
+</script>
+</html>

@@ -1,0 +1,100 @@
+/*page*/
+.Jry_page{
+	width: 100%;
+	margin:20px auto;
+	font-family: "Microsoft YaHei";
+}
+
+.Jry_page .page_body{
+	min-width: 100px;
+	margin:auto;
+	height: 25px;
+	line-height: 25px;
+}
+
+.Jry_page .page_body:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.Jry_page .page_body .prev_page,.nums_page,.next_page,.jump_page,.maps_page{
+	float: left;
+}
+
+.Jry_page .page_body .prev_page{
+	width: 70px;
+	height: 25px;
+	line-height: 25px;
+	background: #f1f1f1;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.Jry_page .page_body .maps_page{
+	padding: 0px 10px;
+}
+
+.Jry_page .page_body .maps_page .nums_page{
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.Jry_page .page_body .maps_page .nums_page:hover{
+	color: #ff6000;
+}
+
+.Jry_page .page_body .maps_page .active{
+	color: #ff6000;
+}
+
+.Jry_page .page_body .maps_page:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+.Jry_page .page_body .next_page{
+	width: 70px;
+	height: 25px;
+	line-height: 25px;
+	background: #f1f1f1;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.Jry_page .page_body .jump_page{
+	width: 140px;
+	padding:0 10px;
+}
+
+.Jry_page .page_body .jump_page input{
+	width: 24px;
+	height: 25px;
+	padding: 0px 18px;
+	line-height: 25px;
+	background: #f1f1f1;
+	border:none;
+	margin:auto 10px;
+	text-align: center;
+}
+.Jry_page .page_body .jump_button{
+	width: 30px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 4px;
+	background: #f1f1f1;
+	float: left;
+}

@@ -1,0 +1,132 @@
+.Jry_table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.Jry_table .table_body table{
+	font-family: "Microsoft YaHei";
+	width: 100%;
+	cursor: default;
+}
+
+.Jry_table .table_body tr:first-child>td{
+	background: #fff;
+
+}
+.Jry_table .table_body tr:first-child>td:nth-child(2){
+	background: #fff;
+	text-align: left;
+}
+.Jry_table .table_body tr:first-child>td:nth-child(4){
+	text-align: center;
+	cursor: pointer;
+}
+.Jry_table .table_body tr:first-child>td:nth-child(4):hover{
+	color:#f40;
+}
+.Jry_table .table_body tr:first-child>td:nth-child(4):after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.Jry_table .table_body tr:first-child>td:nth-child(4) img{width: 20px;}
+.Jry_table .table_body tr:first-child>td:nth-child(4) .imgDelete{
+	width: 48%;
+	padding-right: 2%;
+	float: left;
+    padding-top: 5px;
+    text-align: right;
+}
+.Jry_table .table_body tr:first-child>td:nth-child(4) .textDelete{
+	width: 50%;
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+}
+
+
+.Jry_table .table_body th{
+	height: 40px;
+	line-height: 40px;
+	background: #000;
+	color: #fff;
+	font-weight: 500;
+
+}
+.Jry_table .table_body td{
+	text-align: center;
+	height: 30px;
+	
+}
+.Jry_table .table_body tr>td:first-child{
+    padding-top: 4px;
+    height: 26px;
+	line-height: 26px;
+}
+.Jry_table .table_body tr:nth-child(odd){
+	background: #f1f1f1;
+}
+.Jry_table .table_body td input[type='checkbox']{
+	width: 15px;
+	height: 15px;
+	-webkit-appearance:none;
+	border:1px #000 solid;
+	background: #fff;
+
+}
+.Jry_table .table_body td input[type='checkbox']:checked{
+	background: #ff6000 url("../img/yes.png");
+	border-color: #ff6000;
+	outline:none;
+}
+
+.Jry_table .table_body td input[type='checkbox']:focus{
+	outline:none;
+}
+
+.Jry_table .table_body td a{
+	color: #fb9d64;
+	margin:0px 3px;
+
+}
+.Jry_table .table_body td a:hover{
+	color: #ff6000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

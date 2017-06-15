@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>学生成绩-雷达图</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" href="css/base.css">
+<style type="text/css">
+#radar{}
+#radar .title{width: 200px;height: 40px;line-height: 40px;margin: 20px auto;font-size: 28px;text-shadow:1px 1px 10px #A28282;}
+#CRadar{margin-left:200px;}
+</style>
+</head>
+<body>
+	<div id="radar">
+		<div class="title ac">
+			学生成绩雷达图
+		</div>
+		<div class="main">
+			<canvas id="CRadar" width="500" height="500">
+				
+			</canvas>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script>
+$(function(){
+	var widths = document.body.clientWidth;
+	var width = widths/2-250 + "px";
+	$("#CRadar").css("margin-left",width);
+})
+
+
+$(function(){
+	
+	
+	radarRage(100);
+
+	//showStudent(80,70,100,90,50);
+
+})
+
+function showStudent(c1,c2,c3,c4,c5){
+	var canvas = document.getElementById("CRadar");
+	var context = canvas.getContext("2d");
+	var s = 200;
+	var cs = 70;
+	var x1 = c1 / 2 + s
+	var y1 = 0;
+
+	var x2 = c2 / 2 - c2 / 4 / Math.cos(36) + s
+	var y2 = c2 / 4 / (Math.cos(36) * Math.tan(18));
+
+	var x3 = c3 + s +cs
+	var y3 = c3 * Math.tan(36) / 2;
+
+	var x4 = 0 + s - cs
+	var y4 = c4 * Math.tan(36) / 2;
+
+	var x5 = c5 / 2 + c5 / 4 / Math.cos(36) + s
+	var y5 = c5 / 4 / (Math.cos(36) * Math.tan(18));
+
+	context.strokeStyle = "rgb(0,0,0)";
+    context.fillStyle = "#f40";
+
+    context.beginPath();
+	context.lineTo(x1,y1);
+	context.lineTo(x2,y2);
+	context.lineTo(x3,y3);
+	context.lineTo(x4,y4);
+	context.lineTo(x5,y5);
+	context.lineTo(x1,y1);
+	
+	context.stroke();
+	context.closePath();
+	context.fill();
+
+}
+
+function radarRage(w){
+
+	var canvas = document.getElementById("CRadar");
+	var context = canvas.getContext("2d");
+	var s = 200;
+	var cs = 70;
+	var x1 = w / 2 + s
+	var y1 = 0;
+
+	var x2 = w / 2 - w / 4 / Math.cos(36) + s
+	var y2 = w / 4 / (Math.cos(36) * Math.tan(18));
+
+	var x3 = w + s +cs
+	var y3 = w * Math.tan(36) / 2;
+
+	var x4 = 0 + s - cs
+	var y4 = w * Math.tan(36) / 2;
+
+	var x5 = w / 2 + w / 4 / Math.cos(36) + s
+	var y5 = w / 4 / (Math.cos(36) * Math.tan(18));
+
+	context.strokeStyle = "rgb(0,0,0)";
+    context.fillStyle = "rgb(255,255,255)";
+    // alert(x0+","+y0);1
+    // alert(x1+","+y1);2
+    // alert(x2+","+y2);3
+    // alert(x3+","+y3);4
+    // alert(x4+","+y4);5
+	
+	context.beginPath();
+	context.lineTo(x1,y1);
+	context.lineTo(x2,y2);
+	context.lineTo(x3,y3);
+	context.lineTo(x4,y4);
+	context.lineTo(x5,y5);
+	context.lineTo(x1,y1);
+	
+	context.stroke();
+	context.closePath();
+	context.fill();
+}
+</script>
+
+
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>海淘商城-放心买进口货-跨境保税|海外直邮|海淘优品|海淘国际</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+   	<link rel="stylesheet" href="css/index.css">
+   	
+</head>
+<style>
+#takeQuan{max-width: 650px;margin: auto;}
+#takeQuan .face{background: url(img/acct/acct_01.jpg) no-repeat top;background-size:100% 100%;font-family: "微软雅黑";}
+#takeQuan .face .top{color: #fff;font-size:35px;height: 1em;line-height: 46px;}
+#takeQuan .face .middle{color: #fff;font-size: 26px;line-height:28px;display: block;}
+#takeQuan .bodys{background: url(img/acct/acct_02.jpg) no-repeat top;background-size:100% 100%;}
+</style>
+<body>
+	<div id="takeQuan" >
+		<div class="face ac">
+			<span class="top ac">
+				恭喜！<br/>
+			</span>
+			<span class="middle ac">
+				您成功领取海淘国际优惠卷
+			</span>
+		</div>
+		<div class="bodys">
+			
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var width = $(window).width();
+		if(width>650){
+			width = 650;
+		}
+		//初始化div高度
+		var heightFace = width*321/650;
+		$(".face").css("height",heightFace*0.75+"px");
+		$(".face").css("padding-top",heightFace*0.25+"px");
+		var heightBodys = width*639/650;
+		$(".bodys").css("height",heightBodys+"px");
+		//初始化字体大小
+		var percent = width/650;
+		// $(".face .top").css("font-size",35*percent+"px");
+		// $(".face .top").css("line-height",46*percent+"px");
+		// $(".face .middle").css("font-size",26*percent+"px");
+		// $(".face .middle").css("line-height",28*percent+"px");
+		
+	})
+</script>

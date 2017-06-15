@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>矩形抽奖转盘</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+<style type="text/css">
+	#zhuanPan{background: #fff;width: 100%;padding-top: 120px;font-family: "微软雅黑";}
+	#zhuanPan .mainPan{margin: auto;width: 726px;position: relative;}
+	#zhuanPan .mainPan .items{width:144px;height:90px;line-height: 90px;background:linear-gradient(#E9563E,#F37C69,#E9563E);color:#fff;margin-right: 1px;font-size: 18px;margin-bottom: 1px;cursor: default;}
+	.fateChoice{}
+	#fateEnd{position: absolute;left: 0px;top: 0px;width: 144px;height: 90px;background: rgba(255,255,255,0.4);z-index: 14px;}
+</style>
+</head>
+<body>
+	<div id="zhuanPan" class="ac">
+		<div class="mainPan ">
+			
+			<div class="top clearfix">
+				<div class="items fl" data-left="0" data-top="0" data-rank="6">谢谢参与</div>
+				<div class="items fl" data-left="145" data-top="0" data-rank="5">50积分</div>
+				<div class="items fl" data-left="290" data-top="0" data-rank="1">一等奖</div>
+				<div class="items fl" data-left="435" data-top="0" data-rank="6">谢谢参与</div>
+				<div class="items fl" data-left="580" data-top="0" data-rank="4">100积分</div>
+			</div>
+
+			<div class="middle clearfix">
+				<div class="left fl">
+					<div class="items" data-left="0" data-top="91" data-rank="2">二等奖</div>
+					<div class="items" data-left="0" data-top="182" data-rank="6">谢谢参与</div>
+				</div>
+				<div class="fate fl">
+					<div class="items fateChoice" style="width: 434px;height:181px;line-height: 181px;cursor:pointer;" onclick="fateComing()">点击抽奖</div>
+				</div>
+				<div class="right fl">
+					<div class="items" data-left="580" data-top="91" data-rank="3">三等奖</div>
+					<div class="items" data-left="580" data-top="182" data-rank="2">二等奖</div>
+				</div>
+			</div>
+			
+			<div class="bottom clearfix">
+				<div class="items fl" data-left="0" data-top="273" data-rank="6">谢谢参与</div>
+				<div class="items fl" data-left="145" data-top="273" data-rank="3">三等奖</div>
+				<div class="items fl" data-left="290" data-top="273" data-rank="5">50积分</div>
+				<div class="items fl" data-left="435" data-top="273" data-rank="6">谢谢参与</div>
+				<div class="items fl" data-left="580" data-top="273" data-rank="3">三等奖</div>
+			</div>
+
+			<div id="fateEnd" class="hide">
+				
+			</div>
+
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript">
+var leftTotal = 580;
+var heightTotal = 273;
+function fateComing(){
+	$("#fateEnd").removeClass("hide");
+	$("#fateEnd").css("left","0px");
+	$("#fateEnd").css("top","0px");
+	var initCount = 3;
+	for(var i = 0;i<initCount;i++){
+		setTimeout(function(){
+			doOnce('linear',0,0,200);
+		},640*i);
+	}
+	setTimeout(function(){
+		chioceEnd(6);
+	},640*initCount);
+}	
+
+function doOnce(way,offSetLine,offSetStraight,time){
+	moveLeft(way,offSetLine,time);
+	moveDown(way,offSetStraight,time);	
+	moveRight(way,offSetLine,time);
+	moveUp(way,offSetStraight,time);
+}
+
+function moveLeft(way,offSetLine,time,oldTime){
+	var fateEnd = $("#fateEnd");
+	var x = time;
+	var y = time*0.8;
+	
+	fateEnd.animate({left:leftTotal-offSetLine},x,way);
+}
+
+function moveDown(way,offSetStraight,time,oldTime){
+	var fateEnd = $("#fateEnd");
+	var x = time;
+	var y = time*0.8;
+	var times = x;
+	if(oldTime){
+		times = oldTime;
+	}
+	setTimeout(function(){
+		fateEnd.animate({top:heightTotal-offSetStraight},y,way);
+	},times);
+}
+
+function moveRight(way,offSetLine,time,oldTime){
+	var fateEnd = $("#fateEnd");
+	var x = time;
+	var y = time*0.8;
+	var times = x+y;
+	if(oldTime){
+		times = oldTime+oldTime*0.8;
+	}
+	setTimeout(function(){
+		fateEnd.animate({left:offSetLine},x,way);
+	},times);
+}
+
+function moveUp(way,offSetStraight,time,oldTime){
+	var fateEnd = $("#fateEnd");
+	var x = time;
+	var y = time*0.8;
+	var times = x*2+y;
+	if(oldTime){
+		times = oldTime*2.8;
+	}
+	setTimeout(function(){
+		fateEnd.animate({top:offSetStraight},y,way);
+	},times);
+}
+
+function chioceEnd(rank){
+	//var left = parseInt(fateEnd.css("left").replace("px",""));
+	//var top = parseInt(fateEnd.css("top").replace("px",""));
+	var dataRank = $("div[data-rank='"+rank+"']");
+	//alert(dataRank)
+	var rankLength = dataRank.length;
+	var choiceOne = 0;
+	if(rankLength>1){
+		var randomNum = Math.round(Math.random()*rankLength);
+		if(randomNum!=0){
+			choiceOne = randomNum-1;
+		}else{
+			choiceOne = randomNum;
+		}
+		
+	}
+	
+	var choiceDiv = dataRank[choiceOne];
+	offSetLine = parseInt(choiceDiv.getAttribute('data-left'));
+	offSetStraight = parseInt(choiceDiv.getAttribute('data-top'));
+	// alert(choiceOne);
+	// alert(offSetLine);
+	// alert(offSetStraight);
+	// if(offSetLine==0){
+	// 	var x = 1000;
+	// 	var y = x*0.8;
+	// 	var way = 'swing';
+
+	// 	if(offSetStraight==0){
+	// 		doOnce(x,y,way,0,0);
+	// 	}else{
+	// 		moveLeft(x,y,way,580);
+	// 		moveDown(x,y,way,273);
+	// 		moveRight(x,y,way,0);
+	// 		moveUp(x,y,way,offSetStraight);
+	// 	}
+	// }else if(offSetLine==580){
+	// 	moveLeft(x,y,way,580);
+	// 	moveDown()
+	// }else{
+	// 	if(offSetStraight==0){
+	// 		moveLeft(x,y,way,580);
+	// 		moveDown(x,y,way,273);
+	// 		moveRight(x,y,way,offSetLine);
+	// 	}else{
+	// 		moveLeft(x,y,way,580);
+	// 		moveDown(x,y,way,273);
+	// 		moveRight(x,y,way,0);
+	// 		moveUp(x,y,way,offSetStraight)
+	// 	}
+	// }
+	
+	var way = 'linear';
+	var time = 500;
+	var timeSlow = 1500;
+	if(offSetLine==0 && offSetStraight==0){
+		moveLeft(way,0,time);
+		moveDown(way,0,time);
+		moveRight(way,0,time);
+		moveUp(way,offSetStraight,timeSlow,time);
+	}
+	if(offSetLine==0 && offSetStraight!=0){
+		if(offSetStraight==heightTotal){
+			moveLeft(way,0,time);
+			moveDown(way,0,time);
+			moveRight(way,0,timeSlow,time);
+		}else{
+			moveLeft(way,0,time);
+			moveDown(way,0,time);
+			moveRight(way,0,time);
+			moveUp(way,offSetStraight,timeSlow,time);
+		}
+	}
+	if(offSetLine!=0 && offSetStraight==0){
+		moveLeft(way,(leftTotal-offSetLine),timeSlow);
+	}
+	if(offSetLine!=0 && offSetStraight!=0){
+		if(offSetLine==leftTotal){
+			moveLeft(way,0,time);
+			moveDown(way,(heightTotal-offSetStraight),timeSlow,time);
+		}else{
+			moveLeft(way,0,time);
+			moveDown(way,0,time);
+			moveRight(way,offSetLine,timeSlow,time);
+		}
+	}
+	
+
+}
+</script>
+
+</html>

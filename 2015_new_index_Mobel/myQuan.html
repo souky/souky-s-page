@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>海淘商城-放心买进口货-跨境保税|海外直邮|海淘优品|海淘国际</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="海淘国际" />
+    <meta name="copyright" content="海淘国际" />
+    <meta name="keywords" content="海淘商城,进口商品,进口食品,，跨境保税，海外直邮，海淘优品，海淘国际"/>
+    <meta name="description" content="海淘商城,放心买进口货，全球优质货品通过海关直通中国，保真，低价，快捷，合法-重庆海淘国际贸易有限公司"/>
+    <link rel="stylesheet" href="css/base.css">
+   	<link rel="stylesheet" href="css/index.css">
+   	
+</head>
+<style>
+#myQuan .topSelect{width: 100%;height: 40px;line-height: 40px;}
+#myQuan .topSelect .items{width: 33%;background: #fff;margin-left:0.3%; }
+#myQuan .topSelect .active{color: #f40;}
+
+#myQuan .quan .items{width: 90%;margin: 10px auto auto auto;height: 60px;background: #fff;}
+#myQuan .quan .items .text{width: 75%;height: 50px;}
+#myQuan .quan .items .text .title{margin:auto 10px;line-height: 40px;color: #444;font-size: 16px;overflow: hidden;height: 40px;text-overflow: ellipsis;white-space: nowrap;}
+#myQuan .quan .items .text .timeLine{margin:auto 10px;line-height: 20px;}
+
+#myQuan .quan .items .money{width: 25%;height: 60px;background: #FF9900;color: #fff;}
+#myQuan .quan .items .money .picse{line-height: 40px;font-size:26px;font-weight: 600;}
+#myQuan .quan .items .money .tiaojian{line-height: 20px;}
+
+#myQuan .page{width: 200px;height: 30px;background: #fff;border-radius: 15px;margin: 20px auto auto auto;line-height: 30px;}
+</style>
+<body style="background:#f1f1f1;">
+
+	<div id="myQuan">
+		<div class="topSelect clearfix">
+			<div class="fl items ac active" onclick="change(this)" data-select="neverUsed">未使用</div>
+			<div class="fl items ac" onclick="change(this)" data-select="used">已使用</div>
+			<div class="fl items ac" onclick="change(this)" data-select="overDue">已过期</div>
+		</div>
+	
+		<div class="quan">
+			<div class="items clearfix ">
+				<div class="text fl">
+					<div class="title">
+						咔哇熊奶粉一段特别卡咔哇熊奶粉一段特别卡咔哇熊奶粉一段特别卡
+					</div>
+					<div class="timeLine">
+						使用期限: 2015.10.01 - 2015.12.01
+					</div>
+				</div>
+				
+				<div class="money fl ac">
+					<div class="picse">
+						¥20
+					</div>
+
+					<div class="tiaojian">
+						满100可用
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="page ac">
+			点击加载更多
+		</div>
+		
+
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	function change(obj){
+		$("#myQuan .topSelect .items").removeClass("active");
+		$(obj).addClass("active");
+		var selects = $(obj).attr("data-select");
+		
+	}
+</script>

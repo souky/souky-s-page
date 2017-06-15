@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>网友纠结伦分享原创jquery评分插件cygrade</title>
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/cygrad.min.css"/>
+	</head>
+	<body>
+     <center>
+  <span style="font-size:15px; font-weight:bold; text-align:center; line-height:25px; color:#000; width:100%">网友纠结伦分享原创jquery评分插件cygrade<br />
+  <a href="http://www.jq-school.com" target="_blank" style="color:#000">JquerySchool</a>网站出品（<a href="http://www.jq-school.com" style="color:#000" target="_blank">http://www.jq-school.com</a>） <br />
+   <a href="http://www.jq-school.com/api/index.html" target="_blank" style="color:#000">在线API帮助文档</a> <br />
+  <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=46917decb200aec3aaf4e2775559520ca4c4d3d532e0550b24aa1ef13e15b8e1">官方网站学习交流QQ群<img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="jquery学堂11群" title="jquery学堂11群"></a></span>
+</center>
+		<h3>jquery-grade 评分插件</h3>
+		<p>该插件可任意设置最大等级，默认最大等级是5 。 支持设置指定默认等级 </p>
+		<p>兼容IE8+,Foxfire,Chrome 等主流浏览器</p>
+		<h3>参数</h3>
+		  <p>id           //唯一标识</p>
+		  <p>title		  //评分标题</p>
+		  <p>num		  //指定等级</p>
+		  <p>maxnum       //最大等级</p>
+		  <p> complete    //回调函数    fun(num){}</p>
+		<h3>使用方式</h3>
+		<p>引入 jquery.js </p>
+		<p>引入 cygrade.min.css </p>
+		<p>引入 cygrade.min.js </p>
+		<div style="background: #f2f2f2; color: green;">
+			<pre>
+$(function(){
+	$("#cygrade").cygrade({
+		title:'酒店星级->',
+		complete:function(t){
+			alert("选中的星级:"+t);
+		}
+	});
+});			
+			</pre>
+		</div>
+		<h3>效果</h3>
+		<div id="cygrade"></div>
+		</br>
+		<div id="cygrade2"></div>
+		<script type="text/javascript" src="js/cygrade.min.js" ></script>
+		<script><!--
+		$(function(){
+			$("#cygrade").cygrade({
+				title:'酒店星级->',
+				complete:function(t){
+					alert("选中的星级:"+t);
+				}
+			});
+			
+			$("#cygrade2").cygrade({
+				title:'任意长度的带默认设置',
+				num:5,
+				maxnum:8,
+				complete:function(t){
+					alert("选中的星级:"+t);
+				}
+			});
+		});
+		--></script>
+	</body>
+</html>

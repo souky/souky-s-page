@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>工聚来</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="工聚来" />
+    <meta name="copyright" content="工聚来" />
+    <meta name="keywords" content="工聚来"/>
+    <link rel="stylesheet" href="css/base.css">
+<style type="text/css">
+#homeGJL{}
+#homeGJL .headTop{height: 40px;width: 100%;background: #E60213;padding-left:40px;}
+#homeGJL .headTop .headTopLogo{width: 58px;margin-right:40px;}
+#homeGJL .headTop .headTopLogo img{width: 100%;}
+#homeGJL .headTop .items{width: 100px;height: 40px;line-height: 40px;color: #fff;font-size:16px;text-align: center;cursor: pointer;}
+#homeGJL .headTop .action{color: #E60213;background: #fff;}
+#homeGJL .mainSearch{margin-top:30px;}
+#homeGJL .mainSearch .searchBox{width: 600px;margin:10px auto;}
+#homeGJL .mainSearch .searchBox .inputText{width: 400px;}
+#homeGJL .mainSearch .searchBox .inputText input{width: 400px;height: 38px;border-color: #E60213;border-style:solid;border-right:none;font-size:16px;}
+#homeGJL .mainSearch .searchBox .changeType{width: 100px;}
+#homeGJL .mainSearch .searchBox .changeType select{width: 100px;height: 44px;border-color: #E60213;font-size:18px;padding-left:26px;border-width: 2px;}
+#homeGJL .mainSearch .searchBox .searchButton{width: 100px;height: 44px;line-height:44px;background: #E60213;color:#fff;font-size:18px;}
+</style>
+</head>
+<body>
+	<div id="homeGJL" class="YH">
+        <div class="headTop clearfix">
+            <div class="headTopLogo fl">
+                <img src="img/logo.png">
+            </div>
+            <div class="fl items action" onclick="changeHeadTop(this)">首页</div>
+            <div class="fl items" onclick="changeHeadTop(this)">需求清单</div>
+            <div class="fl items" onclick="changeHeadTop(this)">采购单</div>
+            <div class="fl items" onclick="changeHeadTop(this)">我的订单</div>
+        </div>
+
+        <div class="w mainSearch">
+            <div class="logo ac">
+                <img src="img/home_1.png">
+            </div>
+            <div class="searchBox clearfix">
+                <div class="inputText fl YH">
+                    <input class="YH" type="text" name="keyword">
+                </div>
+                <div class="changeType fl ">
+                    <select class="YH CP">
+                        <option>商品</option>
+                        <option>品牌</option>
+                    </select>
+                </div>
+                <div class="searchButton fl ac CP">
+                    搜索
+                </div>
+            </div>
+        </div>
+
+
+        <style type="text/css">
+            #shoppingList{margin:20px auto;width: 1000px}
+            #shoppingList .items{text-align: center;border-bottom:1px #c7c7c7 solid;height:30px;line-height: 30px;cursor: default;}
+            #shoppingList .title{color:#666;background: #c7c7c7}
+            #shoppingList .content{overflow: auto;}
+            #shoppingList .ProductName{width: 400px;}
+            #shoppingList .ProductSpec{width: 100px;}
+            #shoppingList .ProductUnit{width: 100px;}
+            #shoppingList .ProductBrand{width: 100px;}
+            #shoppingList .ProductPrice{width: 100px;}
+            #shoppingList .ProductStock{width: 100px;}
+            #shoppingList .ProductOp{width: 100px;}
+            #shoppingList .content .ProductPrice{color: red;}
+            #shoppingList .content .ProductOp{cursor: pointer;}
+            #shoppingList .content .ProductOp:hover{color:red;}
+        </style>
+        <div id="shoppingList">
+            <div class="title clearfix">
+                <div class="fl items ProductName">商品名称</div>
+                <div class="fl items ProductSpec">型号</div>
+                <div class="fl items ProductUnit">规格</div>
+                <div class="fl items ProductBrand">品牌</div>
+                <div class="fl items ProductPrice">单价</div>
+                <div class="fl items ProductStock">预计发货</div>
+                <div class="fl items ProductOp">操作</div>
+            </div>
+            <div class="content">
+                <div class="fl items ProductName">啊世界第哦啊是觉得四脚大家都爱撒娇</div>
+                <div class="fl items ProductSpec">KG_Oop_s</div>
+                <div class="fl items ProductUnit">件</div>
+                <div class="fl items ProductBrand">三环</div>
+                <div class="fl items ProductPrice">￥250.89</div>
+                <div class="fl items ProductStock">当日发货</div>
+                <div class="fl items ProductOp">加入需求清单</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+	function changeHeadTop(obj){
+        $("#homeGJL .headTop .items").removeClass("action");
+        $(obj).addClass("action");
+    }
+</script>
+
+</html>
