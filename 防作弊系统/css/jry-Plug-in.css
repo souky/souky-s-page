@@ -422,6 +422,7 @@ body{
 
 .Jry_menu .menu_level_one .text_level_one{
 	float: left;
+	font-size:16px;
 }
 .Jry_menu .menu_level_one .showimg_level_one{
 	float: right;
