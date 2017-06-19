@@ -206,11 +206,19 @@
 							<input type="text" name="" />
 						</div>
 					</div>
+
+					<div class="query_items"></div>
+					<div class="query_items"></div>
+					<div class="query_items"></div>
+					<div class="query_items">
+						<div class="query_btn">
+							查　询
+						</div>
+					</div>
+					
 				</div>
 				
-				<div class="query_btn">
-					查　询
-				</div>
+				
 			</div>
 
 			<div class="Jry_table" id="testTable">
@@ -232,7 +240,7 @@
 					<table>
 						<tr>
 							<th>
-								<div class="selectAll" data-select="0">全选</div>
+								<input type="checkbox" class="selectAll" name="checkAll" >
 							</th>
 							<th>序号</th>
 							<th>测试标题1</th>
@@ -307,8 +315,8 @@
 							<td>测试内容</td>
 							<td>测试内容</td>
 							<td>
-								<a href="#">试听</a>
-								<a href="#">排除</a>
+								<img title="试听" class="tdImg" src="img/listen.png">
+								<img title="排除" class="tdImg" src="img/exclude.png">
 							</td>
 						</tr>
 					</table>
@@ -329,6 +337,11 @@
 		</div>
 	</div>
 
+
+
+
+	
+
 	
 </body>
 <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
@@ -340,7 +353,7 @@
 		
 		JRYPage.pageInit('testPage',1,pageTotal,11,prevPage,numsPage,nextPage);
 		
-		JRYMenu.menuInit(50);
+		JRYMenu.menuInit(50,"img/","");
 	})
 	function deletAll(){
 		

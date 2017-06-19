@@ -21,17 +21,17 @@ JRYTable = (function($){
     	//$("#"+id).find('table').prepend(TEMPLATE['title'].replace('typeJRY',type));
     	//$("#"+id).find(".counts").attr("colspan",counts);
     	$("#"+id).find(".selectAll").click(function(){
-    		var dataSelect = $(this).attr("data-select");
-    		if(dataSelect==0){
+    		var dataSelect = $(this).prop("checked");
+    		if(dataSelect){
     			$("input[name='"+names+"']").prop("checked",true);
-    			$(this).attr("data-select","1");
+    			
     			$("input[name='"+names+"']").parent().parent().addClass("checked_back");
-    			$(this).html("反选");
+    			
     		}else{
     			$("input[name='"+names+"']").prop("checked",false);
-    			$(this).attr("data-select","0");
+    			
     			$("input[name='"+names+"']").parent().parent().removeClass("checked_back");
-    			$(this).html("全选");
+    			
     		}
 
     	})
@@ -63,11 +63,9 @@ JRYPage = (function($){
 		pagenow:当前页数
 		pagetotal:总页数
 		pageshow:分页插件显示的页码数量
-		fn_prev:上一页方法
 		fn_nums:跳转页方法
-		fn_next:下一页方法
 	*/
-	var pageInit = function pageInit(id,pagenow,pagetotal,pageshow,fn_prev,fn_nums,fn_next){
+	var pageInit = function pageInit(id,pagenow,pagetotal,pageshow,fn_nums){
 		var pageObj = $("#"+id);
 		//input 绑定onkeyup
 		pageObj.find("input").keyup(function(){
@@ -81,17 +79,6 @@ JRYPage = (function($){
 		refrshPage(id,pagenow,pagetotal,pageshow,fn_nums);
 
 		//绑定方法
-		pageObj.find(".prev_page").click(function(){
-			fn_prev()
-		});
-		pageObj.find(".nums_page").click(function(){
-			
-				fn_nums(this)
-			
-		});
-		pageObj.find(".prev_next").click(function(){
-			fn_next()
-		});
 		pageObj.find(".jump_button").click(function(){
 			var pages = pageObj.find(".jump_page input").val();
 			fn_nums(this,pages)
@@ -183,18 +170,19 @@ var JRYMenu = {
     $ : window.jQuery
 };
 
-//table表单
+//菜单
 JRYMenu = (function($){
     /*
-		table表初始化参数说明
+		菜单初始化参数说明
 		topheight:头部高度
+		url:项目地址
+		urlSecond:静态资源后缀地址
 	*/
-	var menuInit = function(topheight){
+	var menuInit = function(topheight,url,urlSecond){
 		//获取屏幕高度 初始化高度
 		var height = document.body.scrollHeight - topheight;
-		console.log(document.body.scrollHeight);
 		$(".left_part_context").css("height",height+"px");
-    	
+		$(".right_part_context").css("min-height",height+"px");
     	//绑定事件
     	$(".menu_level_one").click(function(){
     		var menuOne = $(this);
@@ -207,10 +195,10 @@ JRYMenu = (function($){
     		var menuTwo = menuOne.parent().find(".menu_level_two");
     		menuTwo.slideDown(300);
     		//文件路径可能需要更改
-    		$(".menu_level_one").find(".img_level_one img").attr("src","img/radar.png");
-    		$(".menu_level_one").find(".showimg_level_one img").attr("src","img/downArrow.png");
-    		menuOne.find(".img_level_one img").attr("src","img/radarLight.png");
-    		menuOne.find(".showimg_level_one img").attr("src","img/upArrow.png");
+    		
+    		$(".menu_level_one").find(".showimg_level_one img").attr("src",url+urlSecond+"/downArrow.png");
+    		
+    		menuOne.find(".showimg_level_one img").attr("src",url+urlSecond+"/upArrow.png");
     	});
     	$(".items_level_two").click(function(){
     		var menuTwo = $(this);
@@ -219,12 +207,129 @@ JRYMenu = (function($){
     		}
     		$(".items_level_two").removeClass("active_level_two");
     		menuTwo.addClass("active_level_two");
-    		$(".items_level_two").find(".img_level_two img").attr("src","img/rightArrow.png");
-    		menuTwo.find(".img_level_two img").attr("src","img/rightArrowLight.png");
+    		$(".items_level_two").find(".img_level_two img").attr("src",url+urlSecond+"/rightArrow.png");
+    		menuTwo.find(".img_level_two img").attr("src",url+urlSecond+"/rightArrowLight.png");
+    		
+    		var urld = menuTwo.attr("data-url");
+			var data = {url:urld};
+			 $.post(url + "/gotoMenuJsp",data,function (html) {
+			   $(".right_part_context").html(html);
+			});
+    		
     	})
 	}
+	
    
     return {
         menuInit : menuInit
     }
 })(JRYMenu.$);
+
+
+var JRYPopup = {
+    version : '1.0.0',
+    $ : window.jQuery
+};
+
+//弹出框
+JRYPopup = (function($){
+	
+	//定义模板
+    TEMPLATE = {
+		Jalert : '<div class="Jalert"><div class="Jalert_text">TEXT_JRY</div><div class="Jalert_btn" onclick="JRYPopup.JalertClose()">确定</div></div>',
+		Jconfim : '<div class="Jconfim"><div class="Jconfim_title">提示</div><div class="Jconfim_text">TEXT_JRY</div><div class="Jconfim_btns"><div class="Jconfim_btns_btn Jconfim_btns_btn_ok">确定</div><div class="Jconfim_btns_btn Jconfim_btns_btn_cancle">取消</div></div></div>',
+		Jcustom : '<div class="Jcustom"></div>'
+    }
+	
+    /*
+		菜单初始化参数说明
+	*/
+	var popupInit = function(){
+		//获取屏幕高度 初始化高度
+		var height = document.body.scrollHeight;
+		$(".Jry_popup").css("height",height+"px");
+	}
+    /*
+		弹出框参数说明
+	*/
+	var Jalert = function(text){
+		var width = document.body.scrollWidth;
+		var widthOffer = (width-340)/2;
+		
+		var html = TEMPLATE['Jalert'].replace("TEXT_JRY",text);
+		var Jpo = $(".Jry_popup").find(".Jcustom");
+		if(Jpo.length>0){
+			$(".Jry_popup").append(html);
+			$(".Jalert").css("left",widthOffer+"px");
+			$(".Jalert").fadeIn(200);
+		}else{
+			$(".Jry_popup").html(html);
+			$(".Jalert").css("left",widthOffer+"px");
+			popupShow();
+			$(".Jalert").fadeIn(200);
+		}
+	}
+	var JalertClose = function(){
+		var Jpo = $(".Jry_popup .Jcustom");
+		if(Jpo.length>0){
+			$(".Jalert").fadeOut(200);
+		}else{
+			$(".Jalert").fadeOut(200);
+			setTimeout(function(){
+				popupClose();
+			},200);
+		}
+	}
+	
+	/*
+		确认框参数说明
+	*/
+	var Jconfim = function(text,eve,dataId){
+		var html = TEMPLATE['Jconfim'].replace("TEXT_JRY",text);
+		$(".Jry_popup").html(html);
+		$(".Jconfim_btns_btn_ok").click(function(){
+			if(dataId){
+				eve(dataId);
+			}else{
+				eve();
+			}
+		});
+		$(".Jconfim_btns_btn_cancle").click(function(){
+			popupClose();
+		});
+		popupShow();
+	}
+	
+	/*
+		自定义框参数说明
+		container:容器id
+	*/
+	var Jcustom = function(container){
+		var html = TEMPLATE['Jcustom'];
+		$(".Jry_popup").html(html);
+		var htmlInner = $("#"+container).html().replace(/_JRY/g,"");
+		$(".Jry_popup .Jcustom").html(htmlInner);
+		popupShow();
+	}
+	
+	var popupClose = function(){
+		$(".Jry_popup").hide();
+		$(".Jry_popup").html("");
+	}
+	var popupShow = function(){
+		$(".Jry_popup").show();
+	}
+	popupInit();
+    return {
+    	Jalert : Jalert,
+    	JalertClose : JalertClose,
+    	Jconfim : Jconfim,
+    	Jcustom : Jcustom,
+    	popupClose : popupClose
+    }
+})(JRYPopup.$);
+
+
+
+
+
