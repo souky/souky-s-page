@@ -180,7 +180,7 @@ JRYMenu = (function($){
 	*/
 	var menuInit = function(topheight,url,urlSecond){
 		//获取屏幕高度 初始化高度
-		var height = document.body.scrollHeight - topheight;
+		var height = window.screen.availHeight - topheight;
 		$(".left_part_context").css("height",height+"px");
 		$(".right_part_context").css("min-height",height+"px");
     	//绑定事件
