@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>AutoCode</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="Souky" />
+    <meta name="copyright" content="Souky" />
+    <meta name="keywords" content="Souky"/>
+    <link rel="stylesheet" href="resources/css/base.css">
+    <link rel="stylesheet" href="resources/css/autocode.css">
+</head>
+
+<body>
+	<div id="autoCode">
+        <div class="title ac">Auto Code By Souky</div>
+        
+        <div class="main">
+            <div class="titleMain ac">
+                information
+            </div>
+            <div class="formData clearfix">
+                <div class="items fl">
+                    <input type="text" name="" placeholder="please enter tablename" />
+                </div>
+
+                <div class="items fl">
+                    <input type="text" name="" placeholder="please enter packagename" />
+                </div>
+
+                <div class="items fl">
+                    <input type="text" name="" placeholder="please enter entityname" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+<script>
+    $(function(){
+        //初始化input placeholder
+        inputPlaceHolderInit();
+
+    })
+
+    function inputPlaceHolderInit(){
+        $("#autoCode .formData .items input").each(function(){
+            var placeholders = $(this).attr("placeholder");
+            $(this).attr("placeholder",null);
+            var html = '<div class="placeholder" data-click="0">'+placeholders+'</div>';
+            $(this).parent().append(html);
+
+            //复写placeholder属性
+            $("#autoCode .formData .items .placeholder").click(function(){
+                var clicks = $(this).attr("data-click");
+                if (clicks == '0') {
+                    $(this).parent().find("input").focus();
+                    $(this).attr("data-click","1");
+                    $(this).css("color","#ca2450");
+                    $(this).animate(
+                    {
+                        top:'-7px',
+                        height:'15px',
+                        lineHeight:'15px',
+                        fontSize:'12px',
+                        left:'1%'
+                    },
+                    200,
+                    'swing'
+                    );
+                }
+            });
+
+            //复写焦点离开
+            $("#autoCode .formData .items input").focusout(function(){
+                
+                var value = $(this).val();
+                var objc = $(this).parent().find(".placeholder");
+                
+                if(value == ""){
+                    objc.attr("data-click","0");
+                    objc.css("color","#666");
+                    objc.animate(
+                    {
+                        top:'0px',
+                        height:'40px',
+                        lineHeight:'40px',
+                        fontSize:'16px',
+                        left:'3%'
+                    },
+                    200,
+                    'swing'
+                    );
+                }else{
+                    objc.css("color","#666");
+                }
+            });
+
+            //复写焦点进入
+            $("#autoCode .formData .items input").focus(function(){
+                
+                $(this).parent().find(".placeholder").css("color","#ca2450");
+                
+            });             
+        })
+    }
+</script>
+
+</html>

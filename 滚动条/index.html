@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>滚动条</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="author" content="Souky" />
+    <meta name="copyright" content="Souky" />
+    <meta name="keywords" content="Souky"/>
+    <link rel="stylesheet" href="base.css">
+    <style type="text/css">
+        ::-webkit-scrollbar{width: 0px;}
+        .scroll_content{
+            -ms-scroll-chaining: chained;
+            -ms-overflow-style: none;
+            -ms-content-zooming: zoom;
+            -ms-scroll-rails: none;
+            -ms-content-zoom-limit-min: 100%;
+            -ms-content-zoom-limit-max: 500%;
+            -ms-scroll-snap-type: proximity;
+            -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+            -ms-overflow-style: none;
+            overflow: auto;
+            width: 0px;
+        }
+
+        #scrollbar_s{width: 10px;position: fixed;top: 0px;right: 0px;background: #e8e8e8;height: 100%;z-index: 9999;}
+        #scrollbar_block{width: 9px;position: absolute;top:0px;left: 1px;height: 200px;background: #c7c7c7;border-radius: 2px;cursor: pointer;z-index: 2;}
+        #scrollbar_cover{width: 100%;position: absolute;top: 0px;right:0px;height: 100%;background: rgba(255,255,255,0);z-index: 1;}
+
+        .items{height: 100px;line-height: 100px;font-size: 22px;}
+        #showinfo{color: #fff;width: 100px;line-height: 20px;background: rgba(0,0,0,0.5);position: fixed;left: 0px;bottom: 0px;text-align: center;min-height: 20px;}
+    </style>
+</head>
+
+<body>
+	<div style="width: 80%;margin:auto;background: #c7c7c7;">
+        <div class="items ac YH">100</div>
+        <div class="items ac YH">200</div>
+        <div class="items ac YH">300</div>
+        <div class="items ac YH">400</div>
+        <div class="items ac YH">500</div>
+        <div class="items ac YH">600</div>
+        <div class="items ac YH">700</div>
+        <div class="items ac YH">800</div>
+        <div class="items ac YH">900</div>
+        <div class="items ac YH">1000</div>
+        <div class="items ac YH">1100</div>
+        <div class="items ac YH">1200</div>
+        <div class="items ac YH">1300</div>
+        <div class="items ac YH">1400</div>
+        <div class="items ac YH">1500</div>
+    </div>
+    <div id="scrollbar_s">
+        <div style="width: 100%;height: 100%;">
+            <div id="scrollbar_block"></div>
+            <div id="scrollbar_cover"></div>
+        </div>
+    </div>
+
+    <div id="showinfo">
+        
+    </div>
+</body>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script>
+    $(function(){
+        //init
+        scrollbarInit();
+    })
+
+    function scrollbarInit(){
+
+        //内容总长度
+        heightTotal = $("body").height();
+        //滚动条长度
+        heightScrollbar = $("#scrollbar_s").height();
+
+        //计算滚动条比例
+        heightScrollbarBlock = heightScrollbar/heightTotal * heightScrollbar;
+        //alert(heightScrollbarBlock)
+        $("#scrollbar_block").css("height",heightScrollbarBlock+"px");
+
+        //页面宽度
+        var widthTotal = $("body").width()+10;
+        $("#scrollbar_cover").css("width",widthTotal+"px");
+        //监听页面滚动
+        listenPageScroll();
+
+        //初始化滚动条鼠标事件
+        scrollbarBlockInit();
+    }
+
+    //页面滚动  按照比例滚动块进行滚动
+    function listenPageScroll(){
+        $(window).scroll(function(){
+            //滚动高度
+            var scrollTop =$(this).scrollTop();
+            //页面最大滚动高度
+            var scrollTopTotal = heightTotal - heightScrollbar;
+
+            //滚动条最大滚动高度
+            var scrollbar_s_total = heightScrollbar - heightScrollbarBlock;
+            //滚动条滚动距离
+            var scrollTop_block = scrollTop/scrollTopTotal * scrollbar_s_total +"px";
+
+            $("#scrollbar_block").animate({top:scrollTop_block},10,'swing');
+            //shows(scrollTop_block)
+        })
+    }
+
+    //鼠标点击滚动快进行页面滚动的调节
+    // function scrollbarBlockInit(){
+    //     $("#scrollbar_block").mousedown(function(e){
+    //         // var e = window.event;
+    //         //获取当前坐标
+    //         var clientY_now = e.clientY;
+    //         $(window).bind("mousemove",function(e){
+    //             //滚动条最大滚动高度
+    //             var scrollbar_s_total = heightScrollbar - heightScrollbarBlock;
+    //             //鼠标移动坐标
+    //             var clientY_move = e.clientY;
+    //             //移动距离
+    //             var clientOffsetY = (clientY_move - clientY_now)/30;
+    //             //当前滚动条滚动高度
+    //             var scrollTop_now = parseFloat($("#scrollbar_block").css("top").replace("px",""));
+    //             //滚动距离
+    //             var scrollTop_height = scrollTop_now + clientOffsetY;
+
+    //             if(0<=scrollTop_height && scrollTop_height<=scrollbar_s_total){
+    //                 $("#scrollbar_block").animate({top:scrollTop_height},10,'swing');
+    //             }
+
+    //             shows(scrollTop_height)
+    //         })
+    //     })
+    //     $(window).mouseup(function(e){
+    //         $(window).unbind("mousemove");
+    //     })
+
+    // }
+
+    function scrollbarBlockInit(){
+        $("#scrollbar_block").mousedown(function(e){
+            // var e = window.event;
+            //获取当前坐标
+            var clientY_now = e.clientY;
+            $(window).bind("mousemove",function(e){
+                //滚动条最大滚动高度
+                var scrollbar_s_total = heightScrollbar - heightScrollbarBlock;
+                //鼠标移动坐标
+                var clientY_move = e.clientY;
+                //移动距离
+                var clientOffsetY = (clientY_move - clientY_now)/30;
+                //当前滚动条滚动高度
+                var scrollTop_now = parseFloat($("#scrollbar_block").css("top").replace("px",""));
+                //滚动距离
+                var scrollTop_height = scrollTop_now + clientOffsetY;
+
+                if(0<=scrollTop_height && scrollTop_height<=scrollbar_s_total){
+                    $("#scrollbar_block").animate({top:scrollTop_height},10,'swing');
+                }
+
+                shows(scrollTop_height)
+            })
+        })
+        $(window).mouseup(function(e){
+            $(window).unbind("mousemove");
+        })
+
+    }
+
+
+
+    function shows(text){
+        $("#showinfo").html(text);
+    }
+</script>
+
+</html>
