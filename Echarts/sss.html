@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#main{width:1000px;height:800px;margin:100px auto;}
+	</style>
+</head>
+<body>
+	<div id="main"></div>
+</body>
+<script src="jquery.min.js"></script>
+<script src="echarts.js"></script>
+<script src="hebei.js"></script>
+<script>
+$(function(){
+	// $.getJSON('hebei.json', function (data) {
+	//     echarts.registerMap('hebei', data);
+	//     var chart = echarts.init(document.getElementById('main'));
+	//     chart.setOption({
+	//         series: [{
+	//             type: 'map',
+	//             map: 'hebei'
+	//         }]
+	//     });
+	// });
+
+	var chart = echarts.init(document.getElementById('main'));
+    chart.setOption({
+        series: [{
+            type: 'map',
+            map: 'hebei'
+        }]
+    });
+})
+
+
+</script>
+</html>

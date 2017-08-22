@@ -1,0 +1,175 @@
+UDP
+A5F0
+    
+0B000000
+01
+F0
+0000
+01
+
+
+//帧头
+a5f0
+61000000
+01
+32
+4232
+//下发头
+00
+00
+03425559
+04
+
+//数据
+//编号
+e7130300   //201703
+//场次
+01000000   //000001
+//开始时间
+f8334d59
+//结束时间
+709d4d59
+//保留
+00000000
+
+
+e713030002000000349b4f596032505900000000
+e7130300030000002c565159b059515900000000
+e713030004000000243052592c37525900000000
+
+
+a5f0
+25000000
+01
+32
+4548
+
+01
+00
+08425d59
+01
+ec130300
+01000000
+0c1f5d59
+6c725e59
+00000000
+
+a5f0
+25000000
+01
+32
+0000
+00
+00
+caef5e59
+01
+ec130300
+01000000
+8cae5c59
+ec015e59
+00000000
+
+
+a5f0f6000000019628b9
+21645659
+1700
+
+00
+eedf0b00
+00000000
+00
+
+
+
+a5f01a00000001960000
+c3385f59
+0100
+00
+07b20100
+00000000
+01
+
+grant all privileges on tablemenu.* to root@'localhost' identified by 'sjn26845';
+flush privileges;
+
+
+
+optionTeacher:null,
+optionSubject:null,
+optionTeacher_val:'',
+optionSubject_val:'',
+name_q:'',
+
+
+<el-col :span="4" class="pct25 mr20 ">
+<label class="mr20">学校  </label>
+<el-select v-model="optionSchool_val" class="pct70" placeholder="请选择学校" @change="school_chage()">
+    <el-option v-for="item in optionSchool" :key="item.id" :label="item.name" :value="item.id"></el-option>
+</el-select>
+</el-col>
+<el-col :span="4" class="pct25 mr20">
+<label class="mr20">年级</label>
+<el-select v-model="optionGrand_val" class="pct70" placeholder="请选择年级">
+    <el-option v-for="item in optionGrand" :key="item.id" :label="item.name" :value="item.id"></el-option>
+</el-select>
+</el-col>
+<el-col :span="4" class="pct25 mr20">
+<label class="mr20">教师</label>
+<el-select v-model="optionTeacher_val" class="pct70" placeholder="请选择教师">
+    <el-option v-for="item in optionTeacher" :key="item.id" :label="item.name" :value="item.id"></el-option>
+</el-select>
+</el-col>
+<el-col :span="4" class="pct25">
+<label class="mr20">学科</label>
+<el-select v-model="optionSubject_val" class="pct70" placeholder="请选择学科">
+    <el-option v-for="item in optionSubject" :key="item.id" :label="item.name" :value="item.id"></el-option>
+</el-select>
+</el-col>
+
+Field error in object 'program' on field 'queryStartDate': rejected value [2017-08-08 10:54:23]; codes [typeMismatch.program.queryStartDate,typeMismatch.queryStartDate,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [program.queryStartDate,queryStartDate]; arguments []; default message [queryStartDate]]; default message [Failed to convert property value of type [java.lang.String] to required type [java.util.Date] for property 'queryStartDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@org.springframework.format.annotation.DateTimeFormat java.util.Date] for value '2017-08-08 10:54:23'; nested exception is java.lang.IllegalArgumentException: Unable to parse '2017-08-08 10:54:23']
+
+id:4
+isDelete:0
+remark:马老师小学四年级精品数学课直播
+createUser:flm
+name:马老师小学四年级精品数学课直播
+type:VOD
+schoolId:d285ea42fac149ee84e27041aa6decc1
+schoolName:苏州大学
+gradeId:3953423b063948f187d2dfe777e0346b
+gradeName:一年级
+subject:6
+teacherId:864e993b552f407aa9061579b4b07af4
+teacherName:马老师
+sourceId:24
+sourceName:苏州实验小学四年级三班
+isCourse:1
+syllabusId:124
+status:start
+startDate:1499821200000
+endDate:1499827200000
+encoding:UTF-8
+resolution:1920*1280
+codeRate:1080p
+rateControl:rate_control
+frameRate:100
+videoPath:/file/vide/sannianjiwuwen.mp4
+isDeleted:0
+pageNum:0
+pageSize:0
+subjectName:历史
+
+
+http://he.yinyuetai.com/uploads/videos/common/C033015644E6D35D99022E014A4761A1.flv?sc\u003d6cbd6cfc31def573\u0026br\u003d3138\u0026vid\u003d2650626\u0026aid\u003d167\u0026area\u003dHT\u0026vst\u003d2
+
+<div class="el-dialog el-dialog--small" style="top: 15%;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><div class="el-dialog__body">
+
+</div>
+</div>
+
+
+717b041ffbd542ef90757bc1862a4f27
+d423f4acfc7a411abb0abcb6a236f074
+54eb09dde52148bba9f6eff7eddceb3b
+
+9b29da4162c84267ab1ecd5ea8b0590c
