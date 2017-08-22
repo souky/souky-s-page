@@ -31,7 +31,6 @@
         #scrollbar_cover{width: 100%;position: absolute;top: 0px;right:0px;height: 100%;background: rgba(255,255,255,0);z-index: 1;}
 
         .items{height: 100px;line-height: 100px;font-size: 22px;}
-        #showinfo{color: #fff;width: 100px;line-height: 20px;background: rgba(0,0,0,0.5);position: fixed;left: 0px;bottom: 0px;text-align: center;min-height: 20px;}
     </style>
 </head>
 
@@ -71,16 +70,12 @@
     <div id="scrollbar_s">
         <div style="width: 100%;height: 100%;">
             <div id="scrollbar_block"></div>
-           
         </div>
-    </div>
-
-    <div id="showinfo">
-        
     </div>
 </body>
 
 <script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery-ui.min.js"></script>
 <script>
     $(function(){
         //init
@@ -123,76 +118,40 @@
             var scrollTop_block = scrollTop/scrollTopTotal * scrollbar_s_total +"px";
 
             $("#scrollbar_block").animate({top:scrollTop_block},10,'swing');
-            //shows(scrollTop_block)
+            
         })
     }
 
-    //鼠标点击滚动快进行页面滚动的调节
-    // function scrollbarBlockInit(){
-    //     $("#scrollbar_block").mousedown(function(e){
-    //         // var e = window.event;
-    //         //获取当前坐标
-    //         var clientY_now = e.clientY;
-    //         $(window).bind("mousemove",function(e){
-    //             //滚动条最大滚动高度
-    //             var scrollbar_s_total = heightScrollbar - heightScrollbarBlock;
-    //             //鼠标移动坐标
-    //             var clientY_move = e.clientY;
-    //             //移动距离
-    //             var clientOffsetY = (clientY_move - clientY_now)/30;
-    //             //当前滚动条滚动高度
-    //             var scrollTop_now = parseFloat($("#scrollbar_block").css("top").replace("px",""));
-    //             //滚动距离
-    //             var scrollTop_height = scrollTop_now + clientOffsetY;
-
-    //             if(0<=scrollTop_height && scrollTop_height<=scrollbar_s_total){
-    //                 $("#scrollbar_block").animate({top:scrollTop_height},10,'swing');
-    //             }
-
-    //             shows(scrollTop_height)
-    //         })
-    //     })
-    //     $(window).mouseup(function(e){
-    //         $(window).unbind("mousemove");
-    //     })
-
-    // }
 
     function scrollbarBlockInit(){
-        $("#scrollbar_block").mousedown(function(e){
-            // var e = window.event;
-            //获取当前坐标
-            var clientY_now = e.clientY;
-            $(window).bind("mousemove",function(e){
-                //滚动条最大滚动高度
-                var scrollbar_s_total = heightScrollbar - heightScrollbarBlock;
-                //鼠标移动坐标
-                var clientY_move = e.clientY;
-                //移动距离
-                var clientOffsetY = (clientY_move - clientY_now)/30;
-                //当前滚动条滚动高度
-                var scrollTop_now = parseFloat($("#scrollbar_block").css("top").replace("px",""));
-                //滚动距离
-                var scrollTop_height = scrollTop_now + clientOffsetY;
+        $("#scrollbar_block").draggable(
+            { 
+                containment: "parent",
+                axis: "y" ,
+                drag:function(){
 
-                if(0<=scrollTop_height && scrollTop_height<=scrollbar_s_total){
-                    $("#scrollbar_block").animate({top:scrollTop_height},10,'swing');
+                    //滚动条滚动高度
+                    var scrollHeight = parseInt($(this).css("top").replace("px",""));
+
+                    //页面最大滚动高度
+                    var scrollTopTotal = heightTotal - heightScrollbar;
+
+                    //滚动条最大滚动高度
+                    var scrollbar_s_total = heightScrollbar - heightScrollbarBlock;
+
+                    //页面滚动高度
+                    var windowScrollTop = (scrollHeight/scrollbar_s_total) * scrollTopTotal +'px';
+
+                    //$(window).scrollTop(windowScrollTop);
+
+                    $("html,body").animate({"scrollTop":windowScrollTop},0,'swing')
+                    //$(window).animate({"scrollTop":windowScrollTop},10,'swing');
+
                 }
-
-                shows(scrollTop_height)
-            })
-        })
-        $(window).mouseup(function(e){
-            $(window).unbind("mousemove");
-        })
-
+            }
+        );
     }
 
-
-
-    function shows(text){
-        $("#showinfo").html(text);
-    }
 </script>
 
 </html>
