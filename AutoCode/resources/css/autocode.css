@@ -25,13 +25,14 @@ body{font-family: "Microsoft Yahei";background:url('../img/background.jpg') repe
 	font-size: 20px;
 	border-bottom: 1px #c7c7c7 solid;
 	margin: auto;
+	position: relative;
 }
 
 #autoCode .formData{
 	width: 90%;
 	margin:30px auto;
-	padding-bottom: 50px;
-	border-bottom: 1px #c7c7c7 solid;
+	/*padding-bottom: 50px;
+	border-bottom: 1px #c7c7c7 solid;*/
 }
 
 #autoCode .formData .items{
@@ -70,4 +71,51 @@ body{font-family: "Microsoft Yahei";background:url('../img/background.jpg') repe
 }
 :focus {
     outline: -webkit-focus-ring-color none 0px;
+}
+
+/*column*/
+#autoCode .main .column{
+	width: 90%;
+	margin: auto;
+	padding:20px 0;
+}
+#autoCode .main .column .colTitle{
+	height: 40px;
+	line-height: 40px;
+	width:100%;
+}
+#autoCode .main .column .colTitle .titleItems{
+	width: 20%;
+}
+#autoCode .main .column .colItems{
+	height: 50px;
+	line-height: 50px;
+	width:100%;
+}
+#autoCode .main .column .colItems .cols{
+	width: 20%;
+}
+#autoCode .main .column .colItems .cols input{
+	width: 80%;
+	display: block;
+	padding:0 4%;
+	margin:auto;
+	border: none;
+	border:1px #c7c7c7 solid;
+	height:35px;
+	line-height:40px;
+	font-size:16px;
+	background: rgba(255,255,255,0);
+}
+#addCol{
+	width: 70px;
+    border: 1px #c7c7c7 solid;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    cursor: pointer;
 }

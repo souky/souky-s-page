@@ -36,9 +36,35 @@
                 </div>
             </div>
 
-            <div class="columo">
-                <div></div>
-
+            <div class="titleMain ac">
+                table
+                <div id="addCol" class="ac">添加列</div>
+            </div>
+            <div class="column">
+            	<div class="colTitle clearfix">
+            		<div class="titleItems ac fl">列名</div>
+            		<div class="titleItems ac fl">说明</div>
+            		<div class="titleItems ac fl">类型</div>
+            		<div class="titleItems ac fl">长度</div>
+            		<div class="titleItems ac fl">字段名</div>
+            	</div>
+                <div class="colItems clearfix">
+                	<div class="cols fl colNames">
+                		<input type="text" name="">
+                	</div>
+                	<div class="cols fl">
+                		<input type="text" name="">
+                	</div>
+                	<div class="cols fl">
+                		<input type="text" name="">
+                	</div>
+                	<div class="cols fl">
+                		<input type="text" name="">
+                	</div>
+                	<div class="cols fl entNames">
+                		<input type="text" name="" readonly>
+                	</div>
+                </div>
             </div>
         </div>
     </div>
@@ -49,8 +75,41 @@
     $(function(){
         //初始化input placeholder
         inputPlaceHolderInit();
-
+        //table表格初始化
+        tableInit();
     })
+
+    function tableInit(){
+    	//add
+    	$("#addCol").click(function(){
+    		var html = '<div class="colItems clearfix"><div class="cols fl colNames"><input type="text" name=""></div><div class="cols fl"><input type="text" name=""></div><div class="cols fl"><input type="text" name=""></div><div class="cols fl"><input type="text" name=""></div><div class="cols fl entNames"><input type="text" name=""></div></div>';
+    		$(".column").append(html);
+    		colNameToEntityName();
+    	});
+
+    	colNameToEntityName();
+    	
+    }
+
+    //列名自动转化
+    function colNameToEntityName(){
+    	$(".colNames").find("input").focusout(function(){
+    		var text = $(this).val();
+    		if(text!=""){
+    			var strs = text.split("_");
+    			if(strs.length>1){
+    				for (var i = 0; i < strs.length; i++) {
+    					if (i==0) {
+    						text = strs[i];
+    					}else{
+    						text += strs[i].substr(0,1).toUpperCase()+strs[i].substr(1)+'';
+    					}
+    				}
+    			}
+    		}
+    		$(this).parent().parent().find(".entNames input").val(text);
+		})
+    }
 
     function inputPlaceHolderInit(){
         $("#autoCode .formData .items input").each(function(){
@@ -110,7 +169,9 @@
                 
                 $(this).parent().find(".placeholder").css("color","#ca2450");
                 
-            });             
+            });
+
+
         })
     }
 </script>
