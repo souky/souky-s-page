@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>radarDemo</title>
+</head>
+<style type="text/css">
+	#radar{
+		margin: 200px 438px;
+		border: 1px solid #775454;
+	}
+</style>
+<body>
+	<canvas id="radar" width="400px" height="400px"></canvas>
+</body>
+<script type="text/javascript">
+	 window.onload = function(){
+	 	//init
+		
+		init_radar(0,0)
+	 }
+	 
+	 function init_radar(edgeSize,radius){
+	 	var radars = document.getElementById("radar");	 
+	 	var radar = radars.getContext("2d");
+		radar.translate(0,400);
+		radar.beginPath();
+		radar.moveTo(10,0);
+		radar.lineTo(10,-300);
+		radar.stroke();
+		
+	 }
+
+</script>
+</html>
