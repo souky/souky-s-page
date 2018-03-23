@@ -70,6 +70,21 @@
                 $(this).find(".textR").css("margin-left","10px");
         })
 
+        $.ajax({
+        	url:'https://api.weixin.qq.com/wxa/get_qrcode?access_token=7_85ECZ6BxImRY7xzCdBybHmih141rLyomgOUAVGmK_n5-I9_bWF215G9u1jY2GG_Wr_0jApwHirIpDGWYQnGT_j1SijfxwHw_5VpKEbmUMqjlssib-66-2H5wjNrVpqsJJESIjXPL4yTCAhd2WLQeAKDSHM',
+        	type:'get',
+        	crossDomain:true,
+        	dataType:"image/jpeg",
+        	headers : {'Access-Control-Allow-Origin':'*'},
+        	success:function(res){
+        		console.log(res)
+        	}
+        })
+
+   //      $.getJSON("https://api.weixin.qq.com/wxa/get_qrcode?access_token=7_85ECZ6BxImRY7xzCdBybHmih141rLyomgOUAVGmK_n5-I9_bWF215G9u1jY2GG_Wr_0jApwHirIpDGWYQnGT_j1SijfxwHw_5VpKEbmUMqjlssib-66-2H5wjNrVpqsJJESIjXPL4yTCAhd2WLQeAKDSHM",function(res){
+			// console.log(res)
+   //      })
+
     })
 </script>
 
