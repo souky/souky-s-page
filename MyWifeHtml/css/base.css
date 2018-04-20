@@ -18,8 +18,10 @@ em,i,u{font-style:normal}
 .dorpdown:hover .dorpdown-layer,.hover .dorpdown-layer{display:block}
 .cw-icon{position:relative;cursor:default;zoom:1}
 .cw-icon .i,.cw-icon i{display:block;position:absolute;overflow:hidden}
-.w{max-width:1200px;margin:0 auto;}
+.w{width:1200px;margin:auto;}
 .mt{margin-top: 10px;}
+.cp{cursor:pointer;}
+.cd{cursor: default;}
 a{color:#666;text-decoration:none}
 a:hover{color:#e82418}
 .m,.mb,.mc,.mt,.p-detail,.p-img,.p-market,.p-name,.p-price,.sm,.smb,.smc,.smt{overflow:hidden}
