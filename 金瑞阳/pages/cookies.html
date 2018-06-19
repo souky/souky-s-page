@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>asd</title>
+	<style type="text/css">
+		.items{margin:10px;}
+		form{width:300px;float: left;}
+		input{width: 60%}
+	</style>
+</head>
+<body>
+	<div style="margin: 80px 20px;padding-bottom: 50px;">
+		<form id="chinese">
+			<div class="subjectName" style="text-align: left;">语文</div>
+			<div class="items">
+				1:<input type="text" data-no="1" data-type="0" data-socre="5" name="test">
+			</div>
+			<div class="items">
+				2:<input type="text" data-no="2" data-type="0" data-socre="5" name="test">
+			</div>
+			<div class="items">
+				3:<input type="text" data-no="3" data-type="0" data-socre="5" name="test">
+			</div>
+			<div class="items">
+				4:<input type="text" data-no="4" data-type="0" data-socre="5" name="test">
+			</div>
+			<div class="items">
+				5:<input type="text" data-no="5" data-type="0" data-socre="5" name="test">
+			</div>
+			<div class="items">
+				6:<input type="text" data-no="6" data-type="0" data-socre="5" name="test">
+			</div>
+			<div class="items">
+				<div>
+					7:<input type="text" data-no="7" data-type="1" data-socre="10" name="test">
+				</div>
+				<div>
+					S1:<input class="step" data-no="1" value="" placeholder="分步分数" data-socre="5">
+				</div>
+				<div>
+					S1:<input class="step" data-no="2" value="" placeholder="分步分数" data-socre="5">
+				</div>
+			</div>
+
+
+			<div class="items">
+				<div class="sumV"></div>
+				<input type="button" value="合计" onclick="sumValue(this)">
+				<input type="button" value="重置" onclick="clearValue(this)">
+			</div>
+		</form>
+
+
+	</div>
+	<div id="jsonS"></div>
+	<div onclick="makeJSON()" style="text-align: center;height:40px;line-height: 40px;font-size:16px;cursor: pointer;width: 100%;color: #fff;background: #f40;position: fixed;left:0px;bottom: 0px">
+		转换JSON
+	</div>
+</body>
+<script src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+	})
+
+	function sumValue(o){
+		var sum = 0;
+		$(o).parent().parent().find("input[name='test']").each(function(){
+			if($(this).val() == ''){
+
+			}else{
+				sum += parseInt($(this).val());
+			}
+
+		})
+
+		$(o).parent().find(".sumV").text(sum);
+	}
+
+	function clearValue(o){
+		$(o).parent().parent().find("input[name='test']").val("");
+	}
+
+	function makeJSON(){
+		var data = [];
+		$("form").each(function(){
+			var dataO = new Object();
+			var subject = $(this).find(".subjectName").text();
+			var score = [];
+			$(this).find("input[name='test']").each(function(){
+				var dataT = new Object();
+				var types = $(this).attr("data-type");
+				dataT['itemNo'] = $(this).attr("data-no");
+				dataT['itemType'] = types;
+				dataT['score'] = $(this).val();
+				dataT['totalScore'] = $(this).attr("data-socre");
+				if(types == '1'){
+					var list = $(this).parent().parent().find(".step");
+					var listStep = [];
+					for(var i = 0;i < list.length;i++){
+						var dataS = new Object();
+						var o = list[i];
+						dataS['itemNo'] = $(o).attr("data-no");
+						dataS['score'] = $(o).val();
+						dataS['totalScore'] = $(o).attr("data-socre");
+						listStep.push(dataS);
+					}
+					dataT['listStep'] = listStep;
+				}
+				score.push(dataT);
+			})
+
+			dataO['subject'] = subject;
+			dataO['detailList'] = score;
+			data.push(dataO);
+		})
+		$("#jsonS").html(JSON.stringify(data));
+		console.log(JSON.stringify(data));
+	}
+</script>
+</html>

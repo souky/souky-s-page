@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+<title>spectrum</title>
+<link href="css/base.css" rel="stylesheet">
+<style type="text/css">
+	#contents{
+		width:95%;
+		overflow: hidden;
+		margin: 250px auto;
+		background: #fff;
+		height:400px;
+		position: relative;
+		cursor: pointer;
+	}
+	#spectrum{
+		position: absolute;
+		left: 0px;
+		right:0px;
+		z-index: 999;
+	}
+	#background{
+		position: absolute;
+		left: 0px;
+		right:0px;
+		z-index: 99;
+	}
+	#coordinate{
+		position: absolute;
+		left: 3px;
+		right:0px;
+		z-index: 99;
+		width: 20px;
+	}
+	#coordinate div{
+		color:#8c8c8c;
+		font-family: Consoles;
+		font-size: 12px;
+	}
+	.btn{
+		width:200px;
+		height: 30px;
+		text-align: center;
+		background: #f40;
+		color:#fff;
+		font-size:20px;
+		margin:50px auto;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body >
+	<div class="btn" onclick="stepUp()">START</div>
+	<div id="contents">
+		<canvas id="spectrum" width="6144" height="400"></canvas>
+		<canvas id="background" width="6144" height="400"></canvas>
+		<div id="coordinate"></div>
+	</div>
+
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="js/spectrum/moke.js"></script>
+<script type="text/javascript">
+	var c = null;
+	var cxt = null;
+	var datas = data.data;
+	var xs = 0;
+	var lineNum = 7;
+	var colsNum = 40;
+	$(function(){
+		c = document.getElementById("spectrum");
+		cxt = c.getContext("2d");
+		cxt.strokeStyle = "#fff";
+		
+		//background
+		var b = document.getElementById("background");
+		var bxt = b.getContext("2d");
+		bxt.fillStyle = "#282f63";
+		bxt.fillRect(0,0,c.width,c.height);
+
+		bxt.strokeStyle = "#8c8c8c";
+
+		var heightOffset = parseInt(b.height / lineNum);
+		var widthOffset = parseInt(b.width / colsNum);
+
+		var height = 0;
+		var width = 0;
+
+		
+		var numbers = 0 - 40;
+		var htmls = "";
+		//coordinate
+		for(var x = 0;x < (lineNum -1);x++){
+			
+			numbers -= 10;
+			var lineHeightNum = parseInt(heightOffset / 11 * 8) + heightOffset;
+			htmls += '<div style="width:20px;height:' + heightOffset + 'px;line-height:'+lineHeightNum+'px">'+numbers+'</div>';
+
+		}
+		$("#coordinate").html(htmls);
+
+		// cross
+		for(var x = 0;x < lineNum;x++){
+			bxt.beginPath();
+			height += heightOffset;
+			bxt.moveTo(0,height);
+			bxt.lineTo(b.width,height);
+			bxt.stroke();
+		}
+		
+		// vertical
+		bxt.fillStyle = "#8c8c8c"
+		var spectrumOffset = parseInt((1610 - 30) / colsNum)
+		for(var x = 0;x < colsNum;x++){
+			bxt.beginPath();
+			width += widthOffset;
+			bxt.moveTo(width,0);
+			bxt.lineTo(width,b.height);
+			bxt.stroke();
+
+			bxt.font = "12px Consoles";
+			bxt.fillText(""+(30 + spectrumOffset * (x + 1)),(width -15),(b.height - 5));
+		}
+
+		$("#contents").mousedown(function(e){
+			var s = e.pageX;
+			var leftOF = c.width - parseInt($(this).width())
+			$(this).mousemove(function(e){
+				var offset = parseInt(e.pageX) - s;
+
+				var left = parseInt($("#spectrum").css("left"));
+				left += offset;
+				if(left < -leftOF){
+					left = -leftOF; 
+				}
+				if(left > 0){
+					left = 0;
+				}
+				console.log(left)
+				$("#spectrum").animate({left:left+'px'},10,'linear');
+				$("#background").animate({left:left+'px'},10,'linear');
+			})
+		})
+		$("#contents").mouseup(function(){
+			$(this).off("mousemove");
+		})
+		$("#contents").mouseleave(function(){
+			$(this).off("mousemove");
+		})
+
+		 
+	})
+
+	function stepUp(){
+		
+		setInterval("moveS()",100);
+		
+	}
+
+	function moveS(){
+		cxt.clearRect(0,0,c.width,c.height);
+		cxt.beginPath();
+
+		$.post("http://192.168.1.151:8080/spectrum/showSpectrum",null,function(res){
+			var stepDatas = res;		
+		
+			for(var i in stepDatas){
+				var ypath = parseInt(parseInt(stepDatas[i]) + 200);
+				if(i != 0){
+					var left = parseInt(3 * i);
+					cxt.lineTo(left,ypath);
+				}else{
+					cxt.moveTo(0,ypath);
+				}
+			}
+			
+			cxt.stroke();
+			cxt.closePath();
+		})
+		
+
+		
+		
+	}
+	
+
+</script>
+</html>

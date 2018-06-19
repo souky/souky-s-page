@@ -1,0 +1,19 @@
+body{
+	box-sizing: border-box;
+	background: #fafafa;
+}
+
+.fix{*zoom:1;}
+.fix:after{display:table; content:''; clear:both;}
+.fl{
+	float: left;
+}
+.ac{
+	text-align: center;
+}
+.al{
+	text-align: left;
+}
+.ar{
+	text-align: right;
+}
