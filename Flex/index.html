@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FLEX</title>
+	<link rel="stylesheet" href="flex.css" type="text/css" />
+</head>
+<body>
+	<div class="box_title">BOX_ONE</div>
+	<div class="box box_one">
+		<div class="items">1</div>
+		<div class="items">2</div>
+		<div class="items">3</div>
+		<div class="items">4</div>
+		<div class="items">5</div>
+	</div>
+	<div class="botton">
+		<div class="bottons" onclick="changes('box_one',{'flex-direction':'row'})">横行正序</div>
+		<div class="bottons" onclick="changes('box_one',{'flex-direction':'row-reverse'})">横向倒序</div>
+		<div class="bottons" onclick="changes('box_one',{'flex-direction':'column'})">纵向正序</div>
+		<div class="bottons" onclick="changes('box_one',{'flex-direction':'column-reverse'})">纵向倒序</div>
+	</div>
+
+
+	
+</body>
+<script type="text/javascript" src="index.js"></script>
+</html>

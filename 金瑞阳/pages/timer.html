@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+<title>timer</title>
+<link href="css/base.css" rel="stylesheet">
+</head>
+<body>
+	<div style="margin:200px auto auto auto;width: 221px">
+		
+		<input type="text" id="jry">
+		<input type="button" name="" value="验证" onclick="yanzheng()">
+
+	</div>
+	<div style="margin:20px auto;width: 221px;text-align: center;color: red" id="error"></div>
+
+</body>
+<script type="text/javascript" src="js/JRYValidate.js"></script>
+<script type="text/javascript">
+	
+
+	function yanzheng(){
+		var va = document.getElementById("jry").value;
+		var flag = JRYValidate.isUrl(va);
+		document.getElementById("error").innerHTML = flag;
+		
+	}
+
+</script>
+</html>
