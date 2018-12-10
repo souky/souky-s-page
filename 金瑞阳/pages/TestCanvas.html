@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TestCanvas</title>
+</head>
+<style type="text/css">
+	.context{
+		width:1200px;
+		height: 500px;
+		margin:200px auto;
+	}
+	#canvas{
+		width: 1200px;
+		height: 500px;
+		background: #000;
+	}
+</style>
+<body>
+	<div class="context">
+		<canvas id="canvas" width="1200" height="500"></canvas>
+	</div>
+	
+
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+	var flag = true;
+	$(function(){
+		// canvas
+		initCanvas("canvas");
+		//setInterval('initCanvas("canvas")',100);
+		
+	})
+
+	function initCanvas(id){
+		var data = makeData(flag);
+		flag = !flag;
+		var canvas = document.getElementById(id);
+		var cxt = canvas.getContext("2d");
+		cxt.strokeStyle = "#fff";
+		cxt.clearRect(0,0,canvas.width,canvas.height);
+		cxt.beginPath();
+		var left = 20;
+		cxt.moveTo(0,0);
+		//cxt.lineTo(20,10);
+		for(var x in data){
+			//cxt.quadraticCurveTo((left-10),(data[x-1]<data[x]?data[x]:data[x-1]),left,data[x]);
+			//cxt.quadraticCurveTo((left-10),(data[x]),left,data[x]);
+			// if(x != 0){
+			// 	cxt.arcTo((left-12),data[x-1],left,data[x],1);
+			// }else{
+			// 	cxt.arcTo(0,0,left,data[x],3);
+			// }
+			cxt.lineTo(left,data[x]);
+			left += 20;
+		}
+		cxt.stroke();
+		cxt.closePath();
+	}
+
+	function makeData(){
+		var array = [];
+		for(var x = 0;x < 60;x++){
+			var n = x % 2;
+			if(flag){
+				array.push(n == 0?200:350);
+			}else{
+				array.push(n == 0?350:200);
+			}
+			
+		}
+		return array;
+	}
+</script>
+</html>
