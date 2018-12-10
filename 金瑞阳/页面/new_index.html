@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大屏页面滚动特效</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="author" content="Souky" />
+<meta name="copyright" content="Souky" />
+<meta name="keywords" content="Souky"/>
+<link rel="stylesheet" href="base.css">
+<style type="text/css">
+#index{width: 100%;background: #000;font-family: "\u5FAE\u8F6F\u96C5\u9ED1";position: relative;}
+.indexTitle{color:#fff;width:900px;margin: auto;text-align: center;height:100px;position: absolute;}
+.indexTitle .items{width: 100px;height:120px;text-align: center;cursor: pointer;line-height: 120px;font-size: 120px;}
+.active{border-bottom: 2px #fff solid;}
+</style>
+</head>
+
+<body>
+	<div id="index">
+		<div class="indexTitle clearfix hide">
+			<div class="items fl">E</div>
+			<div class="items fl">D</div>
+			<div class="items fl">U</div>
+			<div class="items fl">C</div>
+			<div class="items fl">A</div>
+			<div class="items fl">T</div>
+			<div class="items fl">I</div>
+			<div class="items fl">O</div>
+			<div class="items fl">N</div>
+		</div>
+	</div>
+</body>
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var height = $(window).height();
+		var width = $("#index").width();
+		var offsetTopF = height / 2 -50;
+		var offsetLeftF = width / 2 - 450;
+		var offsetTopS = 0;
+		var offsetLeftS = 0;
+
+		$("#index").css("height",height+"px");
+		$(".indexTitle").css('left',offsetLeftF+"px");
+		$(".indexTitle").css('top',offsetTopF+"px");
+
+		//hover
+		$(".items").hover(function(){
+			$(this).animate({lineHeight:'50px'},200,'swing');
+		},function(){
+			$(this).animate({lineHeight:'100px'},200,'swing');
+		})
+
+
+		//click
+		$(".items").click(function(){
+			
+			$(".indexTitle").animate({top:'30px'},400,'swing');
+
+			$(".items.active").hover(function(){
+				$(this).animate({lineHeight:'50px'},200,'swing');
+			},function(){
+				$(this).animate({lineHeight:'100px'},200,'swing');
+			});
+
+			$(".items.active").removeClass("active");
+			$(this).addClass("active");
+			$(this).animate({lineHeight:'100px'},200,'swing');
+			$(this).unbind("hover");
+
+		})
+
+
+		
+		$(".indexTitle").removeClass("hide");
+	})
+</script>
+</html>

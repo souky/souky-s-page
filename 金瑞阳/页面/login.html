@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大屏页面滚动特效</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="author" content="Souky" />
+<meta name="copyright" content="Souky" />
+<meta name="keywords" content="Souky"/>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="copy.css">
+<style type="text/css">
+.login{width: 100%;font-family: "\u5FAE\u8F6F\u96C5\u9ED1";position: relative;
+	/*background:-webkit-linear-gradient( top,#03283a,#1f98ff);*/
+	    
+}
+body{
+	    background-image: -webkit-linear-gradient(90deg, #41b93e 0%, #3b9e3c 35%, #274535 75%, #190530 100%);
+}
+/*body{
+	    background-image: -webkit-linear-gradient(90deg, #395ecb 0%, #3657be 35%, #242161 75%, #1a0531 100%);
+}*/
+
+img{width: 100%}
+.leftPart{
+	width: 50%;
+	height:100%;
+}
+.rightPart{
+	width: 50%;
+	height:100%;
+	position: relative;
+}
+.imgs{
+	position: absolute;
+	right:240px;
+	top:260px;
+}
+#page2{
+	margin-left:0px;
+	margin-top:0px;
+	width:0px;
+	height:0px;
+}
+#stage{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: 200px;
+    top: 200px;
+    margin-left: 0px;
+    margin-right:0px;
+}
+.imt{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: -40px;
+    top: -80px;
+}
+.imts{
+    width: 360px;
+    position: absolute;
+    left: 143px;
+    top: -104px;
+}
+.login2{
+	position: absolute;
+	right:100px;
+	top:260px;
+	z-index: 9999;
+	width:502px;
+	height:423px;
+	background: #fff;
+}
+#track{
+	width:3000px;
+	margin-left: -1375px;
+}
+#line1{
+	-webkit-animation:fastmove 2s infinite linear;
+	transform-style:preserve-3d;
+}
+
+
+@-webkit-keyframes fastmove{
+	0%{ 
+		left:-20%;
+	}
+	100%{ 
+		left:70%;		
+	}
+}
+</style>
+</head>
+
+<body>
+
+	<div id="login1" class="login clearfix ">
+		<div id="stage">
+			<div id="page1" class="status1" style="display: block;">
+				<div class="glow">
+					<img src="page1_glow.png">
+				</div>
+				<div class="main">
+					<ul>
+						<li><img src="page2_main_1.png"></li>
+						<li><img src="page2_main_2.png"></li>
+						<li><img src="page2_main_3.png"></li>
+						<li><img src="page2_main_4.png"></li>
+					</ul>
+				</div>
+				<div id="track" class="page1">
+					<div id="line1"><img src="lineglow.png"></div>
+				</div>
+				<div class="title">
+					<span><img src="page1_title.png"></span>
+					<span style="font-size:13px;margin-top:10px;padding-left:20px">	基于2017新标准<br>	智能、科技、便携平台</span>
+				</div>
+			</div>
+			
+		</div>
+		<style type="text/css">
+			.title_login{
+				width: 100%;
+				height:50px;
+				line-height: 50px;
+				text-align: center;
+				border-bottom: 1px solid #66BB6A;
+			    font-size: 28px;
+			    color: #66BB6A;
+			}
+			.loginButton {
+			    width: 100%;
+			    height: 60px;
+			    line-height: 60px;
+			    background: #66BB6A;
+			    color: #fff;
+			    border-radius: 4px;
+			    cursor: pointer;
+			    text-align: center;
+			    font-size: 20px;
+			    margin-top: 40px;
+			}
+			.input_items{
+				width: 100%;
+				height:50px;
+				line-height: 50px;
+				margin-top: 20px;
+			    -webkit-appearance: none;
+			    -moz-appearance: none;
+			    appearance: none;
+			    background-color: #fff;
+			    background-image: none;
+			    border-radius: 1px;
+			    border: 1px solid #bfcbd9;
+			    box-sizing: border-box;
+			    color: #1f2d3d;
+			    font-size: inherit;
+			    outline: 0;
+			    padding: 3px 10px;
+			    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+			}
+
+			input[type='checkbox']{
+			    width: 14px;
+			    height: 14px;
+			    -webkit-appearance: none;
+			    border: 1px #000 solid;
+			    background: #fff;
+			    border-radius: 2px;
+			}
+			input[type='checkbox']:checked {
+			    background: #66BB6A url(../../img/pcImg/yes.png);
+			    border-color: #66BB6A;
+			    outline: none;
+			}
+		</style>
+		<div class="login2">
+			<div style="width:90%;margin:auto;">
+				<div class="title_login">登录</div>
+				<input type="text" class="input_items" name="" placeholder="用户名">
+				<input type="text" class="input_items" name="" placeholder="密码">
+				<div class="clearfix">
+					<input type="text" style="width: 50%;" class="input_items fl" name="" placeholder="验证码">
+					<div class="fl" style="width: 49%;margin-left:1%;height:50px;line-height: 50px;margin-top: 20px;">
+						<img src="" style="width: 100%;">						
+					</div>
+				</div>
+				<div class="clearfix" style="height:22px;color:#666;margin-top: 20px;">
+					<input type="checkbox" class="fl" name="" >
+					<div  class="fl" style="line-height: 18px;">记住我</div>
+				</div>
+				<div class="loginButton">
+					登录
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="login2" class="login clearfix hide">
+		<div class="leftPart fl">
+			<div id="page2" class="status1" style="display: block;">
+				<div class="main">
+					<ul>
+						<li>
+							<span>
+								<img class="round" src="ttround.png">
+							</span>
+						</li>
+						<li>
+							<span>
+								<img class="round" src="ttround.png">
+							</span>
+						</li>
+						<li>
+							<span>
+								<img class="round" src="ttround.png">
+							</span>
+						</li>
+					</ul>	
+				</div>
+				<div class="imt">
+					<img src="logo2.png">
+				</div>
+				<div class="imts">
+					<img src="title1.png">
+				</div>
+			</div>
+			
+		</div>
+		<div class="rightPart fl">
+			<div class="imgs">
+				<img src="login.png" >
+			</div>
+		</div>
+	</div>
+</body>
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var height = $(window).height();
+
+		$("#login2").css("height",height+"px");
+		
+		var height2 = height/2 - 50;
+		$("#stage").css("top",height2+"px");
+	})
+	
+</script>
+</html>
